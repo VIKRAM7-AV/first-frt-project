@@ -164,12 +164,15 @@ export default function HeroSection() {
               </Link>
 
               {/* View Products Button */}
-              <Link
-                href="#products"
-                className="hero-anim-btn inline-flex items-center justify-center rounded-lg border border-[#14532d]/40 bg-white px-6 sm:px-7 py-3.5 text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:bg-[#14532d]/5 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0 will-change-transform"
+              <button
+                onClick={() => {
+                  const el = document.getElementById("products");
+                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                }}
+                className="hero-anim-btn inline-flex items-center justify-center rounded-lg border border-[#14532d]/40 bg-white px-6 sm:px-7 py-3.5 text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:bg-[#14532d]/5 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0 will-change-transform cursor-pointer"
               >
                 <span>View Products</span>
-              </Link>
+              </button>
             </div>
 
             {/* Feature Badges Row */}

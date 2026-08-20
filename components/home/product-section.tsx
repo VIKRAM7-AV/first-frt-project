@@ -593,7 +593,7 @@ export default function ProductSection() {
           </div>
 
           {/* "Need Bulk Supply?" Dark Green Banner Card */}
-          <div className="bulk-banner-card relative w-full bg-gradient-to-r from-[#032e16] via-[#05401d] to-[#043317] rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20">
+          <div className="bulk-banner-card relative w-full rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20" style={{ background: 'linear-gradient(135deg, #032e16 0%, #065a2b 30%, #0a7e3a 55%, #05601e 80%, #043317 100%)' }}>
             {/* Subtle Ambient Lighting Overlay */}
             <div
               aria-hidden="true"
@@ -604,7 +604,7 @@ export default function ProductSection() {
               className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/5 rounded-full blur-2xl pointer-events-none"
             />
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between min-h-[260px] sm:min-h-[290px] lg:min-h-[310px]">
+            <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between min-h-[160px] sm:min-h-[190px] lg:min-h-[210px]">
               {/* Left Content Column */}
               <div className="flex-1 flex flex-col items-start justify-center text-left px-6 sm:px-10 md:px-12 py-8 sm:py-10 lg:py-10 max-w-2xl lg:max-w-[50%] xl:max-w-[46%] z-10">
                 {/* Heading */}
@@ -640,14 +640,14 @@ export default function ProductSection() {
               </div>
 
               {/* Right Banner Image Column */}
-              <div className="bulk-banner-image lg:absolute lg:right-0 lg:bottom-0 lg:top-0 lg:w-[54%] xl:w-[58%] flex items-end justify-end pointer-events-none select-none">
+              <div className="bulk-banner-image lg:absolute lg:right-0 lg:bottom-0 lg:top-0 lg:w-[47%] xl:w-[50%] flex items-end justify-end pointer-events-none select-none">
                 <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full flex items-end justify-end">
                   <Image
                     src="/images/banner.png"
                     alt="Fresh Baskets of Bulk Produce - Onions, Potatoes, Garlic, Eggs, and Fruits"
                     fill
                     className="object-contain object-bottom lg:object-right-bottom drop-shadow-2xl"
-                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    sizes="(max-width: 1024px) 100vw, 48vw"
                   />
                 </div>
               </div>
