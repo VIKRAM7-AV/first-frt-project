@@ -31,7 +31,7 @@ export default function Navbar() {
           </div>
 
           {/* Right Info Items */}
-          <div className="flex items-center gap-4 sm:gap-6 font-medium">
+          <div className="flex items-center gap-4 sm:gap-6 font-regular">
             {/* Operating Hours */}
             <div className="flex items-center gap-1.5">
               <svg
