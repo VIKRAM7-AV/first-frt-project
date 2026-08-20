@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState, useCallback } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
@@ -16,6 +16,13 @@ interface ProductItem {
   description: string;
   accentBg: string;
   quoteMessage: string;
+}
+
+interface FeatureItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: React.ReactNode;
 }
 
 const PRODUCTS: ProductItem[] = [
@@ -76,10 +83,128 @@ const PRODUCTS: ProductItem[] = [
   },
 ];
 
+const FEATURES: FeatureItem[] = [
+  {
+    id: "bulk-supply",
+    title: "Bulk Supply",
+    subtitle: "Available in large quantities",
+    icon: (
+      <svg
+        className="w-10 h-10 sm:w-11 sm:h-11 text-[#14532d] flex-shrink-0"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M24 7c-2 0-3 2-3 4-4 0-7 3-7 7 0 2 1 3.5 2 4.5h16c1-1 2-2.5 2-4.5 0-4-3-7-7-7 0-2-1-4-3-4z" />
+        <path d="M24 7v4" />
+        <rect x="7" y="22.5" width="34" height="8" rx="2" />
+        <rect x="7" y="32.5" width="34" height="8.5" rx="2" />
+        <line x1="20" y1="26.5" x2="28" y2="26.5" strokeWidth="2.4" />
+        <line x1="20" y1="36.5" x2="28" y2="36.5" strokeWidth="2.4" />
+      </svg>
+    ),
+  },
+  {
+    id: "best-prices",
+    title: "Best Prices",
+    subtitle: "Lowest wholesale prices",
+    icon: (
+      <svg
+        className="w-10 h-10 sm:w-11 sm:h-11 text-[#14532d] flex-shrink-0"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect
+          x="9"
+          y="9"
+          width="30"
+          height="30"
+          rx="6"
+          transform="rotate(45 24 24)"
+        />
+        <circle cx="24" cy="9.5" r="2" fill="currentColor" />
+        <path d="M20 19h8M20 23.5h6.5M20 19v9M25.5 19a2.5 2.5 0 0 1 0 5h-5.5M23 24l5 7" strokeWidth="2.2" />
+      </svg>
+    ),
+  },
+  {
+    id: "quality-assured",
+    title: "Quality Assured",
+    subtitle: "Strict quality checks at every step",
+    icon: (
+      <svg
+        className="w-10 h-10 sm:w-11 sm:h-11 text-[#14532d] flex-shrink-0"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M24 6.5L39 12v12c0 10.5-6.8 17.5-15 20-8.2-2.5-15-9.5-15-20V12l15-5.5z" />
+        <path d="M17.5 24.5l4.5 4.5 9-9.5" strokeWidth="2.6" />
+      </svg>
+    ),
+  },
+  {
+    id: "timely-delivery",
+    title: "Timely Delivery",
+    subtitle: "Fast and safe delivery",
+    icon: (
+      <svg
+        className="w-10 h-10 sm:w-11 sm:h-11 text-[#14532d] flex-shrink-0"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="7" y="13" width="22" height="19" rx="2" />
+        <path d="M29 19h7.5l4.5 5.5v7.5h-12V19z" />
+        <path d="M30 20.5h5.5l3 3.5H30v-3.5z" />
+        <circle cx="15" cy="34" r="3.5" />
+        <circle cx="34" cy="34" r="3.5" />
+        <path d="M18.5 34h12M7 32v2h4.5M37.5 34H41v-2" />
+        <line x1="2" y1="18" x2="5" y2="18" strokeWidth="2" />
+        <line x1="1" y1="23" x2="4.5" y2="23" strokeWidth="2" />
+      </svg>
+    ),
+  },
+  {
+    id: "trusted-by-many",
+    title: "Trusted by Many",
+    subtitle: "Serving hotels, stores and businesses",
+    icon: (
+      <svg
+        className="w-10 h-10 sm:w-11 sm:h-11 text-[#14532d] flex-shrink-0"
+        viewBox="0 0 48 48"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M8 18L10 8h28l2 10v2a4 4 0 0 1-8 0 4 4 0 0 1-8 0 4 4 0 0 1-8 0 4 4 0 0 1-8 0v-2z" />
+        <path d="M10 20v18a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V20" />
+        <path d="M20 40V28h8v12" />
+      </svg>
+    ),
+  },
+];
+
 export default function ProductSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const pinContainerRef = useRef<HTMLDivElement>(null);
   const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const bottomContentRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
@@ -164,16 +289,13 @@ export default function ProductSection() {
 
       scrollTriggerRef.current = stTl.scrollTrigger || null;
 
-      // Build seamless synchronized transition for each slide:
-      // Current slide smoothly glides left all the way out of screen (0 -> -100%)
-      // Next slide simultaneously glides in from the right edge into center (100% -> 0)
+      // Build seamless synchronized transition for each slide
       for (let i = 0; i < totalSlides - 1; i++) {
         const currentSlide = slides[i];
         const nextSlide = slides[i + 1];
 
         const stepTl = gsap.timeline();
 
-        // 1. Current slide smoothly moves left out of the viewport
         stepTl.to(
           currentSlide,
           {
@@ -186,7 +308,6 @@ export default function ProductSection() {
           0,
         );
 
-        // 2. Next slide simultaneously moves in from right into center
         stepTl.fromTo(
           nextSlide,
           {
@@ -204,10 +325,78 @@ export default function ProductSection() {
           0,
         );
 
-        // Comfortable resting hold when slide is perfectly centered
         stepTl.to({}, { duration: 0.6 });
 
         stTl.add(stepTl);
+      }
+
+      // 3. Bottom content animations (features strip + banner) — completely separate ScrollTriggers
+      const bottomContainer = bottomContentRef.current;
+      if (!bottomContainer) return;
+
+      const featureItems = bottomContainer.querySelectorAll(".feature-strip-item");
+      const featureStrip = bottomContainer.querySelector(".feature-strip-container");
+      const bannerCard = bottomContainer.querySelector(".bulk-banner-card");
+      const bannerImage = bottomContainer.querySelector(".bulk-banner-image");
+
+      // Animate feature strip items
+      if (featureItems.length && featureStrip) {
+        gsap.fromTo(
+          featureItems,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.08,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: featureStrip,
+              start: "top 90%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Animate bulk banner card
+      if (bannerCard) {
+        gsap.fromTo(
+          bannerCard,
+          { y: 30, opacity: 0, scale: 0.98 },
+          {
+            y: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: bannerCard,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
+      }
+
+      // Animate banner image
+      if (bannerImage && bannerCard) {
+        gsap.fromTo(
+          bannerImage,
+          { x: 35, opacity: 0 },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.9,
+            delay: 0.1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: bannerCard,
+              start: "top 85%",
+              toggleActions: "play none none none",
+            },
+          }
+        );
       }
     }, sectionRef);
 
@@ -218,7 +407,7 @@ export default function ProductSection() {
     <section
       id="products"
       ref={sectionRef}
-      className="relative w-full bg-[#FBF9F5] py-8 sm:py-10 lg:py-12 overflow-hidden select-none"
+      className="relative w-full bg-[#FBF9F5] overflow-hidden select-none"
     >
       {/* Background Decorative Ambient Circles */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
@@ -229,7 +418,7 @@ export default function ProductSection() {
       {/* FULL VIEWPORT WIDTH PINNED STAGE */}
       <div
         ref={pinContainerRef}
-        className="relative z-10 w-full flex flex-col items-center justify-center overflow-hidden"
+        className="relative z-10 w-full py-8 sm:py-10 lg:py-12 flex flex-col items-center justify-center overflow-hidden"
       >
         {/* Section Header (Centered in 1280px) */}
         <div className="w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center mb-6 sm:mb-8">
@@ -368,6 +557,102 @@ export default function ProductSection() {
               </div>
             );
           })}
+        </div>
+      </div>
+
+      {/* ================================================================= */}
+      {/* BOTTOM CONTENT — Normal vertical scroll after pinned slides end   */}
+      {/* ================================================================= */}
+      <div
+        ref={bottomContentRef}
+        className="relative z-10 w-full"
+      >
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 py-8 sm:py-12 lg:py-14">
+          {/* 5-Feature Trust & Value Proposition Strip */}
+          <div className="feature-strip-container w-full bg-[#eef5ed] border border-[#dce8da] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-6 lg:gap-4 items-center">
+              {FEATURES.map((feature) => (
+                <div
+                  key={feature.id}
+                  className="feature-strip-item flex items-center gap-3.5 sm:gap-4 group transition-transform duration-200 hover:-translate-y-0.5"
+                >
+                  <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+                    {feature.icon}
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <h4 className="text-[14.5px] sm:text-[15.5px] font-bold text-[#111827] tracking-tight leading-snug">
+                      {feature.title}
+                    </h4>
+                    <p className="text-[12px] sm:text-[12.5px] text-[#4b5563] font-normal leading-tight mt-0.5">
+                      {feature.subtitle}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* "Need Bulk Supply?" Dark Green Banner Card */}
+          <div className="bulk-banner-card relative w-full bg-gradient-to-r from-[#032e16] via-[#05401d] to-[#043317] rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20">
+            {/* Subtle Ambient Lighting Overlay */}
+            <div
+              aria-hidden="true"
+              className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/5 rounded-full blur-2xl pointer-events-none"
+            />
+
+            <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between min-h-[260px] sm:min-h-[290px] lg:min-h-[310px]">
+              {/* Left Content Column */}
+              <div className="flex-1 flex flex-col items-start justify-center text-left px-6 sm:px-10 md:px-12 py-8 sm:py-10 lg:py-10 max-w-2xl lg:max-w-[50%] xl:max-w-[46%] z-10">
+                {/* Heading */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] font-bold text-white tracking-tight leading-[1.15]">
+                  Need Bulk Supply?
+                </h2>
+
+                {/* Subheading */}
+                <p className="mt-2.5 sm:mt-3 text-sm sm:text-base md:text-[17px] text-emerald-100/90 font-normal leading-relaxed max-w-md">
+                  Get the best wholesale prices for your business.
+                </p>
+
+                {/* WhatsApp CTA Button */}
+                <div className="mt-6 sm:mt-8 flex items-center">
+                  <Link
+                    href="https://wa.me/919363526993?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-[#0d4722] shadow-md shadow-black/15 transition-all duration-200 hover:bg-emerald-50 hover:shadow-lg hover:shadow-black/25 hover:-translate-y-0.5 active:translate-y-0"
+                  >
+                    {/* WhatsApp Brand Icon */}
+                    <svg
+                      className="w-5 h-5 fill-[#25D366] flex-shrink-0"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      aria-hidden="true"
+                    >
+                      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67C16.58 3.67 20.28 7.37 20.28 11.91C20.28 16.45 16.58 20.15 12.04 20.15ZM16.56 14.39C16.31 14.27 15.1 13.67 14.88 13.59C14.65 13.51 14.49 13.47 14.32 13.72C14.16 13.97 13.68 14.54 13.54 14.71C13.39 14.87 13.25 14.89 13 14.77C12.75 14.65 11.95 14.38 11 13.54C10.26 12.88 9.76 12.07 9.61 11.82C9.47 11.57 9.6 11.44 9.72 11.32C9.83 11.21 9.97 11.03 10.1 10.88C10.22 10.74 10.26 10.63 10.35 10.47C10.43 10.3 10.39 10.16 10.33 10.04C10.27 9.92 9.78 8.72 9.58 8.22C9.38 7.74 9.18 7.8 9.03 7.79C8.89 7.79 8.73 7.79 8.56 7.79C8.4 7.79 8.13 7.85 7.9 8.1C7.68 8.35 7.04 8.94 7.04 10.15C7.04 11.36 7.92 12.53 8.05 12.7C8.17 12.86 9.78 15.34 12.25 16.41C12.84 16.66 13.29 16.81 13.65 16.93C14.24 17.11 14.78 17.09 15.21 17.02C15.68 16.95 16.67 16.43 16.88 15.84C17.08 15.26 17.08 14.77 17.02 14.65C16.96 14.54 16.81 14.51 16.56 14.39Z" />
+                    </svg>
+                    <span>Get a Quote Now</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Banner Image Column */}
+              <div className="bulk-banner-image lg:absolute lg:right-0 lg:bottom-0 lg:top-0 lg:w-[54%] xl:w-[58%] flex items-end justify-end pointer-events-none select-none">
+                <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full flex items-end justify-end">
+                  <Image
+                    src="/images/banner.png"
+                    alt="Fresh Baskets of Bulk Produce - Onions, Potatoes, Garlic, Eggs, and Fruits"
+                    fill
+                    className="object-contain object-bottom lg:object-right-bottom drop-shadow-2xl"
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
