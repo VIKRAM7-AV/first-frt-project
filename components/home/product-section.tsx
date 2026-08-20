@@ -23,7 +23,7 @@ const PRODUCTS: ProductItem[] = [
     id: "onions",
     name: "Farm-Fresh Red Onions",
     watermark: "ONIONS",
-    image: "/images/onion.png",
+    image: "/images/Onion.png",
     description:
       "Sourced directly from trusted farms, our premium red onions feature firm texture and uniform size. Perfectly cured for minimal weight loss and long shelf life, making them ideal for restaurants, caterers, and retail resellers in 25kg and 50kg bulk bags.",
     accentBg: "from-red-500/10 via-amber-500/5 to-transparent",
@@ -44,7 +44,7 @@ const PRODUCTS: ProductItem[] = [
   {
     id: "eggs",
     name: "Farm-Fresh Table Eggs",
-    watermark: "TABLE EGGS",
+    watermark: "EGGS",
     image: "/images/eggs.png",
     description:
       "Freshly collected, uniform white table eggs delivered daily from bio-secure farms. Carefully graded, sanitized, and packed in heavy-duty wholesale trays (30-egg trays / 210-egg master cartons) for supermarkets, bakeries, and cloud kitchens.",
@@ -101,13 +101,26 @@ export default function ProductSection() {
         .fromTo(
           ".prod-badge-anim",
           { y: 20, opacity: 0, filter: "blur(6px)" },
-          { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.65, ease: "power3.out" }
+          {
+            y: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 0.65,
+            ease: "power3.out",
+          },
         )
         .fromTo(
           ".prod-title-anim",
           { y: "110%", opacity: 0, rotate: 1, filter: "blur(8px)" },
-          { y: "0%", opacity: 1, rotate: 0, filter: "blur(0px)", duration: 0.85, ease: "power4.out" },
-          "-=0.4"
+          {
+            y: "0%",
+            opacity: 1,
+            rotate: 0,
+            filter: "blur(0px)",
+            duration: 0.85,
+            ease: "power4.out",
+          },
+          "-=0.4",
         );
 
       // 2. Scroll-driven Pinned Slides Timeline
@@ -139,7 +152,7 @@ export default function ProductSection() {
             const progress = self.progress;
             const newIndex = Math.min(
               totalSlides - 1,
-              Math.max(0, Math.round(progress * (totalSlides - 1)))
+              Math.max(0, Math.round(progress * (totalSlides - 1))),
             );
             setActiveIndex(newIndex);
             slides.forEach((s, idx) => {
@@ -170,7 +183,7 @@ export default function ProductSection() {
             ease: "power1.inOut",
             duration: 1.5,
           },
-          0
+          0,
         );
 
         // 2. Next slide simultaneously moves in from right into center
@@ -188,7 +201,7 @@ export default function ProductSection() {
             ease: "power1.inOut",
             duration: 1.5,
           },
-          0
+          0,
         );
 
         // Comfortable resting hold when slide is perfectly centered
@@ -264,21 +277,10 @@ export default function ProductSection() {
                 className="absolute inset-0 w-full h-full flex items-center justify-center will-change-transform"
               >
                 <div className="relative w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
-                  
-                  {/* Giant Subtle Background Watermark Text on the right/back */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute right-0 sm:right-6 top-1/2 -translate-y-1/2 select-none pointer-events-none z-0 overflow-hidden"
-                  >
-                    <span className="text-5xl sm:text-6xl md:text-7xl lg:text-[95px] xl:text-[115px] font-black tracking-widest text-[#111827]/[0.035] uppercase whitespace-nowrap block">
-                      {product.watermark}
-                    </span>
-                  </div>
 
                   {/* LEFT COLUMN: Product Image with Floor Shadow & Ambient Light */}
                   <div className="lg:col-span-6 relative flex items-center justify-center z-10">
                     <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] flex flex-col items-center justify-center">
-                      
                       {/* Soft Ambient Produce Glow */}
                       <div
                         className={`absolute inset-0 w-[120%] h-[120%] -left-[10%] -top-[10%] bg-radial ${product.accentBg} blur-3xl opacity-80 pointer-events-none`}
@@ -292,34 +294,26 @@ export default function ProductSection() {
                           width={1000}
                           height={900}
                           priority={index === 0}
-                          className="max-h-full w-auto object-contain drop-shadow-sm select-none transition-transform duration-500 hover:scale-105"
+                          className="max-h-full w-auto object-contain select-none transition-transform duration-500 hover:scale-105"
                           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 420px"
                         />
                       </div>
-
-                      {/* Realistic Triple-Layer Floor Shadow for 3D realism */}
-                      {/* 1. Core Contact Shadow */}
-                      <div
-                        aria-hidden="true"
-                        className="absolute -bottom-1 sm:bottom-0 left-1/2 -translate-x-1/2 w-[68%] sm:w-[64%] h-3 sm:h-4 rounded-[100%] bg-black/40 blur-[4px] sm:blur-[5px] z-0 pointer-events-none"
-                      />
-                      {/* 2. Mid Diffuse Shadow */}
-                      <div
-                        aria-hidden="true"
-                        className="absolute -bottom-2 sm:-bottom-1 left-1/2 -translate-x-1/2 w-[82%] sm:w-[78%] h-6 sm:h-8 rounded-[100%] bg-amber-950/25 blur-md sm:blur-lg z-0 pointer-events-none"
-                      />
-                      {/* 3. Soft Ambient Ground Spread */}
-                      <div
-                        aria-hidden="true"
-                        className="absolute -bottom-3.5 sm:-bottom-2.5 left-1/2 -translate-x-1/2 w-[94%] sm:w-[90%] h-8 sm:h-12 rounded-[100%] bg-slate-900/15 blur-xl sm:blur-2xl z-0 pointer-events-none"
-                      />
                     </div>
                   </div>
 
                   {/* RIGHT COLUMN: Product Information & Actions */}
                   <div className="lg:col-span-6 relative z-10 flex flex-col justify-center text-left">
+                    {/* Giant Watermark Behind Title */}
+                    <div
+                      aria-hidden="true"
+                      className="absolute -top-13 left-0 select-none pointer-events-none z-0 overflow-hidden w-full"
+                    >
+                      <span className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] xl:text-[95px] font-black tracking-widest text-[#111827]/[0.055] uppercase whitespace-nowrap block leading-none">
+                        {product.watermark}
+                      </span>
+                    </div>
                     {/* Product Heading */}
-                    <h3 className="text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold text-[#111827] tracking-tight leading-[1.2]">
+                    <h3 className="relative z-10 text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold text-[#111827] tracking-tight leading-[1.2]">
                       {product.name}
                     </h3>
 
@@ -331,9 +325,9 @@ export default function ProductSection() {
                     {/* Action Buttons */}
                     <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-3.5">
                       {/* Get Bulk Quote (WhatsApp Link) */}
-                      <Link
+                      {/* <Link
                         href={`https://wa.me/?text=${encodeURIComponent(
-                          product.quoteMessage
+                          product.quoteMessage,
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -348,12 +342,12 @@ export default function ProductSection() {
                           <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67C16.58 3.67 20.28 7.37 20.28 11.91C20.28 16.45 16.58 20.15 12.04 20.15ZM16.56 14.39C16.31 14.27 15.1 13.67 14.88 13.59C14.65 13.51 14.49 13.47 14.32 13.72C14.16 13.97 13.68 14.54 13.54 14.71C13.39 14.87 13.25 14.89 13 14.77C12.75 14.65 11.95 14.38 11 13.54C10.26 12.88 9.76 12.07 9.61 11.82C9.47 11.57 9.6 11.44 9.72 11.32C9.83 11.21 9.97 11.03 10.1 10.88C10.22 10.74 10.26 10.63 10.35 10.47C10.43 10.3 10.39 10.16 10.33 10.04C10.27 9.92 9.78 8.72 9.58 8.22C9.38 7.74 9.18 7.8 9.03 7.79C8.89 7.79 8.73 7.79 8.56 7.79C8.4 7.79 8.13 7.85 7.9 8.1C7.68 8.35 7.04 8.94 7.04 10.15C7.04 11.36 7.92 12.53 8.05 12.7C8.17 12.86 9.78 15.34 12.25 16.41C12.84 16.66 13.29 16.81 13.65 16.93C14.24 17.11 14.78 17.09 15.21 17.02C15.68 16.95 16.67 16.43 16.88 15.84C17.08 15.26 17.08 14.77 17.02 14.65C16.96 14.54 16.81 14.51 16.56 14.39Z" />
                         </svg>
                         <span>Get Bulk Quote</span>
-                      </Link>
+                      </Link> */}
 
                       {/* Call Direct */}
                       <a
                         href="tel:+919363526993"
-                        className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#14532d]/40 bg-white px-4.5 sm:px-5 py-2.5 text-sm sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:bg-[#14532d]/5 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#14532d]/40 px-7 sm:px-10 py-2.5 text-sm sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0"
                       >
                         <svg
                           className="w-4 h-4 text-[#14532d]"
@@ -369,7 +363,6 @@ export default function ProductSection() {
                         <span>Call To Order</span>
                       </a>
                     </div>
-
                   </div>
                 </div>
               </div>
