@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,9 +89,14 @@ export default function FooterSection() {
           <div className="footer-col sm:col-span-2 lg:col-span-1">
             {/* Logo */}
             <Link href="/" className="inline-block mb-5">
-              <span className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-none">
-                BK AND CO
-              </span>
+              <Image
+                src="/images/logo2.png"
+                alt="BK AND CO"
+                width={160}
+                height={48}
+                priority
+                className="h-7 sm:h-8 w-auto object-contain"
+              />
             </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-xs mb-6">
@@ -139,7 +145,7 @@ export default function FooterSection() {
 
               {/* Google Maps / Location */}
               <a
-                href="https://maps.google.com/?q=No.28,+Chairman+Rajarathnam+Street,+Opp.+Kamala+Hospital,+Salem+-+636001"
+                href="https://maps.app.goo.gl/sQdRxLwsb3SHSpXa8"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Find us on Google Maps"
