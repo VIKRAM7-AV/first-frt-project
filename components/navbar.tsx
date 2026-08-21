@@ -77,7 +77,7 @@ export default function Navbar() {
 
       {/* 2. Main Navigation Bar */}
       <nav className="w-full bg-white border-b border-stone-200/90 shadow-xs relative z-30">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-2 sm:py-2 flex items-center justify-between gap-4">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4">
           {/* Brand Logo */}
           <Link
             href="/"
@@ -89,7 +89,7 @@ export default function Navbar() {
               width={160}
               height={48}
               priority
-              className="h-10 sm:h-14 w-auto object-contain"
+              className="h-6 sm:h-8 w-auto object-contain"
             />
           </Link>
 
