@@ -1,0 +1,16 @@
+{
+  "name": "BK & Co — Fresh Wholesale Produce",
+  "short_name": "BK & Co",
+  "description": "Salem's trusted wholesale supplier of Onion, Potato, Garlic, Eggs & Fruits.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FBF9F5",
+  "theme_color": "#14532d",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
