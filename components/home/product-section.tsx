@@ -428,9 +428,9 @@ export default function ProductSection() {
         className="relative z-10 w-full py-8 sm:py-10 lg:py-12 flex flex-col items-center justify-center overflow-hidden"
       >
         {/* Section Header (Centered in 1280px) */}
-        <div className="w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center mb-6 sm:mb-8">
+        <div className="w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center mb-4 sm:mb-6 lg:mb-8">
           {/* Subtitle Badge */}
-          <div className="prod-badge-anim inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-wider text-[#16a34a] uppercase mb-1.5 will-change-transform">
+          <div className="prod-badge-anim inline-flex items-center gap-2 text-xs sm:text-sm font-bold tracking-wider text-[#16a34a] uppercase mb-1 will-change-transform">
             <span>WE SUPPLY</span>
           </div>
 
@@ -442,7 +442,7 @@ export default function ProductSection() {
           </div>
 
           {/* Decorative Leaf Divider */}
-          <div className="mt-2.5 sm:mt-3 flex items-center justify-center gap-3">
+          <div className="mt-2 sm:mt-2.5 flex items-center justify-center gap-3">
             <span className="h-[2px] w-12 sm:w-16 bg-[#16a34a]/80 rounded-full" />
             <span className="text-[#16a34a] flex items-center justify-center">
               <svg
@@ -462,7 +462,7 @@ export default function ProductSection() {
         </div>
 
         {/* Slides Stack Container - Full Viewport Width */}
-        <div className="relative w-full min-h-[380px] sm:min-h-[410px] lg:min-h-[440px] overflow-hidden flex items-center justify-center">
+        <div className="relative w-full min-h-[440px] xs:min-h-[460px] sm:min-h-[500px] lg:min-h-[440px] overflow-hidden flex items-center justify-center">
           {PRODUCTS.map((product, index) => {
             return (
               <div
@@ -472,17 +472,17 @@ export default function ProductSection() {
                 }}
                 className="absolute inset-0 w-full h-full flex items-center justify-center will-change-transform"
               >
-                <div className="relative w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
+                <div className="relative w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 lg:gap-8 xl:gap-12 items-center">
                   {/* LEFT COLUMN: Product Image with Floor Shadow & Ambient Light */}
                   <div className="lg:col-span-6 relative flex items-center justify-center z-10">
-                    <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] flex flex-col items-center justify-center">
+                    <div className="relative w-full max-w-[240px] xs:max-w-[270px] sm:max-w-[340px] lg:max-w-[420px] flex flex-col items-center justify-center">
                       {/* Soft Ambient Produce Glow */}
                       <div
                         className={`absolute inset-0 w-[120%] h-[120%] -left-[10%] -top-[10%] bg-radial ${product.accentBg} blur-3xl opacity-80 pointer-events-none`}
                       />
 
                       {/* High-Resolution Produce Image */}
-                      <div className="relative z-10 w-full h-[220px] sm:h-[270px] lg:h-[320px] flex items-center justify-center">
+                      <div className="relative z-10 w-full h-[150px] xs:h-[180px] sm:h-[220px] lg:h-[320px] flex items-center justify-center">
                         <Image
                           src={product.image}
                           alt={product.name}
@@ -490,59 +490,39 @@ export default function ProductSection() {
                           height={900}
                           priority={index === 0}
                           className="max-h-full w-auto object-contain select-none transition-transform duration-500 hover:scale-105"
-                          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 420px"
+                          sizes="(max-width: 640px) 75vw, (max-width: 1024px) 45vw, 420px"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* RIGHT COLUMN: Product Information & Actions */}
-                  <div className="lg:col-span-6 relative z-10 flex flex-col justify-center text-left">
+                  <div className="lg:col-span-6 relative z-10 flex flex-col justify-center text-center lg:text-left items-center lg:items-start px-2 sm:px-4 lg:px-0 mt-4 sm:mt-7 lg:mt-0">
                     {/* Giant Watermark Behind Title */}
                     <div
                       aria-hidden="true"
-                      className="absolute -top-13 left-0 select-none pointer-events-none z-0 overflow-hidden w-full"
+                      className="absolute -top-4 sm:-top-10 lg:-top-13 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:left-0 select-none pointer-events-none z-0 overflow-hidden w-full text-center lg:text-left"
                     >
-                      <span className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px] xl:text-[95px] font-black tracking-widest text-[#111827]/[0.055] uppercase whitespace-nowrap block leading-none">
+                      <span className="text-3xl sm:text-5xl md:text-6xl lg:text-[80px] xl:text-[95px] font-black tracking-widest text-[#111827]/[0.055] uppercase whitespace-nowrap block leading-none">
                         {product.watermark}
                       </span>
                     </div>
                     {/* Product Heading */}
-                    <h3 className="relative z-10 text-2xl sm:text-3xl lg:text-3xl xl:text-4xl font-bold text-[#111827] tracking-tight leading-[1.2]">
+                    <h3 className="relative z-10 text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-[#111827] tracking-tight leading-[1.2]">
                       {product.name}
                     </h3>
 
                     {/* Detailed Description */}
-                    <p className="mt-3 text-sm sm:text-base text-[#4b5563] font-normal leading-[1.65] max-w-xl">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm lg:text-base text-[#4b5563] font-normal leading-[1.6] sm:leading-[1.65] max-w-lg lg:max-w-xl text-center lg:text-left">
                       {product.description}
                     </p>
 
                     {/* Action Buttons */}
-                    <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-3.5">
-                      {/* Get Bulk Quote (WhatsApp Link) */}
-                      {/* <Link
-                        href={`https://wa.me/918489934449?text=${encodeURIComponent(
-                          product.quoteMessage,
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#14532d] px-4.5 sm:px-5 py-2.5 text-sm sm:text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#0f4022] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
-                      >
-                        <svg
-                          className="w-4.5 h-4.5 fill-current"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                          aria-hidden="true"
-                        >
-                          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.04 3.67C16.58 3.67 20.28 7.37 20.28 11.91C20.28 16.45 16.58 20.15 12.04 20.15ZM16.56 14.39C16.31 14.27 15.1 13.67 14.88 13.59C14.65 13.51 14.49 13.47 14.32 13.72C14.16 13.97 13.68 14.54 13.54 14.71C13.39 14.87 13.25 14.89 13 14.77C12.75 14.65 11.95 14.38 11 13.54C10.26 12.88 9.76 12.07 9.61 11.82C9.47 11.57 9.6 11.44 9.72 11.32C9.83 11.21 9.97 11.03 10.1 10.88C10.22 10.74 10.26 10.63 10.35 10.47C10.43 10.3 10.39 10.16 10.33 10.04C10.27 9.92 9.78 8.72 9.58 8.22C9.38 7.74 9.18 7.8 9.03 7.79C8.89 7.79 8.73 7.79 8.56 7.79C8.4 7.79 8.13 7.85 7.9 8.1C7.68 8.35 7.04 8.94 7.04 10.15C7.04 11.36 7.92 12.53 8.05 12.7C8.17 12.86 9.78 15.34 12.25 16.41C12.84 16.66 13.29 16.81 13.65 16.93C14.24 17.11 14.78 17.09 15.21 17.02C15.68 16.95 16.67 16.43 16.88 15.84C17.08 15.26 17.08 14.77 17.02 14.65C16.96 14.54 16.81 14.51 16.56 14.39Z" />
-                        </svg>
-                        <span>Get Bulk Quote</span>
-                      </Link> */}
-
+                    <div className="mt-3.5 sm:mt-5 flex items-center justify-center lg:justify-start gap-3 sm:gap-3.5 w-full sm:w-auto">
                       {/* Call Direct */}
                       <a
                         href="tel:+918489934449"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#14532d]/40 px-7 sm:px-10 py-2.5 text-sm sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#14532d]/40 bg-white/80 backdrop-blur-xs px-6 sm:px-10 py-2.5 sm:py-3 text-xs sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:border-[#14532d] hover:text-[#14532d] hover:bg-white hover:-translate-y-0.5 active:translate-y-0"
                       >
                         <svg
                           className="w-4 h-4 text-[#14532d]"
@@ -564,29 +544,43 @@ export default function ProductSection() {
             );
           })}
         </div>
+
+        {/* Slide Indicator Dots for intuitive navigation on mobile & tablet */}
+        {/* <div className="flex items-center justify-center gap-1.5 sm:gap-2 mt-3 sm:mt-5 lg:mt-6 z-20">
+          {PRODUCTS.map((p, i) => (
+            <div
+              key={p.id}
+              className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                i === activeIndex
+                  ? "w-6 sm:w-8 bg-[#16a34a]"
+                  : "w-1.5 sm:w-2 bg-gray-300"
+              }`}
+            />
+          ))}
+        </div> */}
       </div>
 
       {/* ================================================================= */}
       {/* BOTTOM CONTENT — Normal vertical scroll after pinned slides end   */}
       {/* ================================================================= */}
       <div ref={bottomContentRef} className="relative z-10 w-full">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 py-8 sm:py-12 lg:py-14">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 py-6 sm:py-10 lg:py-14">
           {/* 5-Feature Trust & Value Proposition Strip */}
-          <div className="feature-strip-container w-full bg-[#eef5ed] border border-[#dce8da] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-6 lg:gap-4 items-center">
+          <div className="feature-strip-container w-full bg-[#eef5ed] border border-[#dce8da] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-4 items-center">
               {FEATURES.map((feature) => (
                 <div
                   key={feature.id}
-                  className="feature-strip-item flex items-center gap-3.5 sm:gap-4 group transition-transform duration-200 hover:-translate-y-0.5"
+                  className="feature-strip-item flex items-center gap-3 sm:gap-3.5 group transition-transform duration-200 hover:-translate-y-0.5"
                 >
                   <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                     {feature.icon}
                   </div>
                   <div className="flex flex-col min-w-0">
-                    <h4 className="text-[14.5px] sm:text-[15.5px] font-bold text-[#111827] tracking-tight leading-snug">
+                    <h4 className="text-[13.5px] sm:text-[15px] font-bold text-[#111827] tracking-tight leading-snug">
                       {feature.title}
                     </h4>
-                    <p className="text-[12px] sm:text-[12.5px] text-[#4b5563] font-normal leading-tight mt-0.5">
+                    <p className="text-[11.5px] sm:text-[12.5px] text-[#4b5563] font-normal leading-tight mt-0.5">
                       {feature.subtitle}
                     </p>
                   </div>
@@ -597,7 +591,7 @@ export default function ProductSection() {
 
           {/* "Need Bulk Supply?" Dark Green Banner Card */}
           <div
-            className="bulk-banner-card relative w-full rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20"
+            className="bulk-banner-card relative w-full rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-none sm:shadow-xl sm:shadow-emerald-950/20"
             style={{
               background:
                 "linear-gradient(135deg, #032e16 0%, #065a2b 30%, #0a7e3a 55%, #05601e 80%, #043317 100%)",
@@ -613,30 +607,30 @@ export default function ProductSection() {
               className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-400/5 rounded-full blur-2xl pointer-events-none"
             />
 
-            <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between min-h-[160px] sm:min-h-[190px] lg:min-h-[210px]">
+            <div className="relative z-10 flex flex-col lg:flex-row items-stretch justify-between min-h-0 sm:min-h-[190px] lg:min-h-[210px]">
               {/* Left Content Column */}
-              <div className="flex-1 flex flex-col items-start justify-center text-left px-6 sm:px-10 md:px-12 py-8 sm:py-10 lg:py-10 max-w-2xl lg:max-w-[50%] xl:max-w-[46%] z-10">
+              <div className="flex-1 flex flex-col items-start justify-center text-left px-4.5 xs:px-6 sm:px-8 md:px-10 py-4 xs:py-5 sm:py-8 lg:py-10 max-w-2xl lg:max-w-[50%] xl:max-w-[46%] z-10">
                 {/* Heading */}
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[38px] xl:text-[42px] font-bold text-white tracking-tight leading-[1.15]">
+                <h2 className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[38px] xl:text-[42px] font-bold text-white tracking-tight leading-[1.15]">
                   Need Bulk Supply?
                 </h2>
 
                 {/* Subheading */}
-                <p className="mt-2.5 sm:mt-3 text-sm sm:text-base md:text-[17px] text-emerald-100/90 font-normal leading-relaxed max-w-md">
+                <p className="mt-1.5 sm:mt-2.5 text-xs sm:text-sm md:text-base text-emerald-100/90 font-normal leading-relaxed max-w-md">
                   Get the best wholesale prices for your business.
                 </p>
 
                 {/* WhatsApp CTA Button */}
-                <div className="mt-6 sm:mt-8 flex items-center">
+                <div className="mt-3 xs:mt-4 sm:mt-6 flex items-center">
                   <Link
                     href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-[#0d4722] shadow-md shadow-black/15 transition-all duration-200 hover:bg-emerald-50 hover:shadow-lg hover:shadow-black/25 hover:-translate-y-0.5 active:translate-y-0"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2 xs:px-4.5 xs:py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-base font-semibold text-[#0d4722] shadow-md shadow-black/15 transition-all duration-200 hover:bg-emerald-50 hover:shadow-lg hover:shadow-black/25 hover:-translate-y-0.5 active:translate-y-0"
                   >
                     {/* WhatsApp Brand Icon */}
                     <svg
-                      className="w-5 h-5 fill-[#25D366] flex-shrink-0"
+                      className="w-4 h-4 sm:w-5 sm:h-5 fill-[#25D366] flex-shrink-0"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                       aria-hidden="true"
@@ -650,7 +644,7 @@ export default function ProductSection() {
 
               {/* Right Banner Image Column */}
               <div className="bulk-banner-image lg:absolute lg:right-0 lg:bottom-0 lg:top-0 lg:w-[47%] xl:w-[50%] flex items-end justify-end pointer-events-none select-none">
-                <div className="relative w-full h-[220px] sm:h-[280px] lg:h-full flex items-end justify-end">
+                <div className="relative w-full h-[120px] xs:h-[140px] sm:h-[220px] lg:h-full -mt-2 sm:mt-0 flex items-end justify-end">
                   <Image
                     src="/images/banner.png"
                     alt="Fresh Baskets of Bulk Produce - Onions, Potatoes, Garlic, Eggs, and Fruits"

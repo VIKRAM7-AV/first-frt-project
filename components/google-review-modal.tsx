@@ -23,6 +23,7 @@ export interface GoogleReviewCardProps {
   logoSubtext?: string;
   customLogo?: React.ReactNode;
   onReviewClick?: () => void;
+  onClose?: () => void;
   className?: string;
   showStandBase?: boolean;
 }
@@ -238,7 +239,7 @@ function FullGoogleLogo({ className = "" }: { className?: string }) {
         alt="Google"
         width={160}
         height={54}
-        className="h-10 sm:h-12 w-auto object-contain"
+        className="h-7 xs:h-8 sm:h-11 md:h-12 w-auto object-contain"
         priority
       />
     </div>
@@ -255,7 +256,7 @@ function StorefrontVegetableIllustration({
     <div
       className={`relative flex items-center justify-center select-none ${className}`}
     >
-      <div className="relative w-26 h-26 sm:w-35 sm:h-35 flex items-center justify-center">
+      <div className="relative w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-34 md:h-34 flex items-center justify-center">
         <Image
           src="/images/shop.png"
           alt="BK Vegetables Storefront"
@@ -275,7 +276,7 @@ function ThankYouSection({ className = "" }: { className?: string }) {
     <div
       className={`relative flex items-center justify-center select-none ${className}`}
     >
-      <div className="relative w-44 sm:w-52 h-9 sm:h-15 flex items-center justify-center">
+      <div className="relative w-36 xs:w-42 sm:w-48 md:w-52 h-12 md:h-16 flex items-center justify-center">
         <Image
           src="/images/thank.png"
           alt="Thank you!"
@@ -324,6 +325,7 @@ export function GoogleReviewCard({
   reviewUrl = DEFAULT_WRITE_REVIEW_URL,
   customLogo,
   onReviewClick,
+  onClose,
   className = "",
   showStandBase = false,
 }: GoogleReviewCardProps) {
@@ -346,12 +348,34 @@ export function GoogleReviewCard({
     >
       {/* 1. The Main Plaque Card */}
       <div
-        className="relative w-full max-w-[460px] sm:max-w-[530px] md:max-w-[550px] bg-white rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.18),0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300"
+        className="relative w-full max-w-[330px] xs:max-w-[360px] sm:max-w-[440px] md:max-w-[480px] bg-white rounded-[22px] xs:rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.18),0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300"
         style={{
-          aspectRatio: "1 / 1.36",
-          minHeight: "580px",
+          aspectRatio: "1 / 1.34",
         }}
       >
+        {/* Close Button if inside Modal */}
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close modal"
+            className="absolute top-2.5 right-2.5 xs:top-3.5 xs:right-3.5 sm:top-4 sm:right-4 z-30 w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 rounded-full bg-white/80 hover:bg-white border border-gray-200/80 shadow-xs flex items-center justify-center text-gray-500 hover:text-gray-900 transition-all duration-200 cursor-pointer"
+          >
+            <svg
+              className="w-3 h-3 xs:w-3.5 xs:h-3.5 sm:w-4 sm:h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        )}
+
         {/* Four Colorful Fluid Waves in the Corners */}
         <TopLeftBlueBlob />
         <TopRightRedBlob />
@@ -359,51 +383,48 @@ export function GoogleReviewCard({
         <BottomRightYellowBlob />
 
         {/* Card Body Content */}
-        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between px-6 sm:px-10 py-6 sm:py-8">
+        <div className="relative z-10 w-full h-full flex flex-col items-center justify-between px-4 xs:px-6 sm:px-8 md:px-10 py-4.5 xs:py-5.5 sm:py-7 md:py-8">
           {/* Top Section: Playful Floating Stickers */}
           <div className="relative w-full flex justify-center items-center pointer-events-none">
             {/* Yellow 4-point sparkle (Upper-Left) */}
             <SparkleStar
               color="#FBBC04"
-              className="absolute left-8 sm:left-14 top-0.5 w-6 h-6 animate-pulse"
+              className="absolute left-15 sm:left-12 top-2 w-5 h-5 sm:w-6 sm:h-6 animate-pulse"
             />
 
             {/* Green filled circle dot (Upper-Right) */}
-            <div className="absolute right-18 sm:right-24 -top-0.5 w-3.5 h-3.5 rounded-full bg-[#00A859]" />
+            <div className="absolute right-17 sm:right-20 -top-0.5 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 rounded-full bg-[#00A859]" />
 
             {/* Blue 4-point sparkle (Upper-Right) */}
             <SparkleStar
               color="#1A73E8"
-              className="absolute right-8 sm:right-14 top-6 w-5 h-5"
+              className="absolute right-7 sm:right-10 top-30 sm:top-6 w-4 h-4 sm:w-5 sm:h-5"
             />
 
-            {/* Outlined Red Heart (Middle-Left) */}
-            {/* <HeartOutline className="absolute left-4 sm:left-7 top-14 sm:top-16 w-7 sm:w-8 h-7 sm:h-8 -rotate-12" /> */}
-
             {/* Yellow Smiley Face (Middle-Right) */}
-            <SmileyFace className="absolute right-4 sm:right-7 top-14 sm:top-16 w-7 sm:w-8 h-7 sm:h-8 rotate-6 shadow-xs" />
+            {/* <SmileyFace className="absolute right-3 sm:right-5 top-11 sm:top-14 w-5 h-5 sm:w-7 sm:h-7 rotate-6 shadow-xs" /> */}
           </div>
 
           {/* Middle Section 1: Google Logo & Title */}
-          <div className="flex flex-col items-center text-center mt-2 sm:mt-3 w-full">
+          <div className="flex flex-col items-center text-center mt-1 sm:mt-2 w-full">
             {/* Google Logo Image / Custom Logo */}
             {customLogo ? (
               customLogo
             ) : (
-              <FullGoogleLogo className="mb-2 sm:mb-2.5" />
+              <FullGoogleLogo className="mb-1.5 sm:mb-2" />
             )}
 
             {/* "Share Your Experience" with Dynamic Burst Rays */}
-            <div className="flex items-center justify-center gap-2 sm:gap-3 w-full">
-              <BurstRaysLeft className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-              <h3 className="text-xl sm:text-[26px] font-semibold text-gray-900 tracking-tight whitespace-nowrap">
+            <div className="flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 w-full">
+              <BurstRaysLeft className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              <h3 className="text-base xs:text-lg sm:text-[22px] md:text-[25px] font-semibold text-gray-900 tracking-tight whitespace-nowrap">
                 Share Your Experience
               </h3>
-              <BurstRaysRight className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+              <BurstRaysRight className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 flex-shrink-0" />
             </div>
 
             {/* Subtitle with bolded business name */}
-            <p className="text-xs sm:text-[13px] text-gray-700 font-regular max-w-[320px] sm:max-w-[380px] mt-1.5 leading-snug">
+            <p className="text-[10.5px] xs:text-[11.5px] sm:text-[13px] text-gray-700 font-normal max-w-[270px] xs:max-w-[300px] sm:max-w-[380px] mt-1 sm:mt-1.5 leading-snug">
               We&apos;d love to hear about your experience with our business.
             </p>
           </div>
@@ -414,7 +435,7 @@ export function GoogleReviewCard({
           </div>
 
           {/* Bottom Section 1: Primary Action Button & Footnote */}
-          <div className="w-full flex flex-col items-center px-1 sm:px-2">
+          <div className="w-full flex flex-col items-center px-1">
             {/* "Continue with Google ->" Button */}
             <button
               type="button"
@@ -423,7 +444,7 @@ export function GoogleReviewCard({
               onMouseLeave={() => setIsHovered(false)}
               onMouseDown={() => setIsPressed(true)}
               onMouseUp={() => setIsPressed(false)}
-              className={`w-full max-w-[340px] sm:max-w-[380px] py-3 sm:py-3 px-5 rounded-xl sm:rounded-2xl bg-[#1A73E8] hover:bg-[#1557B0] active:bg-[#0D47A1] text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-3 transition-all duration-200 cursor-pointer ${
+              className={`w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[380px] py-2.5 xs:py-3 sm:py-3 px-4 xs:px-5 rounded-xl sm:rounded-2xl bg-[#1A73E8] hover:bg-[#1557B0] active:bg-[#0D47A1] text-white font-semibold text-xs xs:text-sm sm:text-base flex items-center justify-center gap-2 xs:gap-3 transition-all duration-200 cursor-pointer ${
                 isPressed
                   ? "scale-98"
                   : isHovered
@@ -432,12 +453,12 @@ export function GoogleReviewCard({
               }`}
             >
               {/* Button Text + Animated Arrow */}
-              <span className="tracking-tight text-[15px] sm:text-[16.5px] font-semibold">
+              <span className="tracking-tight text-[13px] xs:text-[14.5px] sm:text-[16px] font-semibold">
                 Continue with Google
               </span>
 
               <span
-                className={`text-lg font-bold transition-transform duration-200 ${
+                className={`text-base sm:text-lg font-bold transition-transform duration-200 ${
                   isHovered ? "translate-x-1" : ""
                 }`}
               >
@@ -446,13 +467,13 @@ export function GoogleReviewCard({
             </button>
 
             {/* Subtext Footnote */}
-            <p className="text-[11.5px] sm:text-xs text-gray-500 font-normal text-center mt-3">
+            <p className="text-[10px] xs:text-[11px] sm:text-xs text-gray-500 font-normal text-center mt-2 sm:mt-2.5">
               Your review will be posted directly on Google.
             </p>
           </div>
 
           {/* Bottom Section 2: Thank You */}
-          <div className="w-full pt-1 pb-1 flex justify-center">
+          <div className="w-full pt-0.5 pb-0.5 flex justify-center">
             <ThankYouSection />
           </div>
         </div>
@@ -566,12 +587,13 @@ export default function GoogleReviewModal({
           />
 
           {/* Modal Container - Perfectly Centered Standee */}
-          <div className="relative z-10 my-auto flex flex-col items-center max-w-[95vw] sm:max-w-[530px] md:max-w-[550px] w-full animate-scaleUp">
+          <div className="relative z-10 my-auto flex flex-col items-center max-w-[92vw] sm:max-w-[460px] md:max-w-[490px] w-full animate-scaleUp">
             {/* Review Card */}
             <GoogleReviewCard
               businessName={businessName}
               reviewUrl={reviewUrl}
               customLogo={customLogo}
+              onClose={handleClose}
               onReviewClick={() => {
                 // Keep modal open or trigger feedback
               }}

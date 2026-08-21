@@ -206,17 +206,6 @@ function ReviewCard({ review }: { review: ReviewItem }) {
                 <span className="text-sm font-semibold text-[#111827] transition-colors line-clamp-1">
                   {review.name}
                 </span>
-                <svg
-                  className="w-4 h-4 text-[#F4B400] flex-shrink-0"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  />
-                </svg>
               </div>
               <div className="flex items-center gap-2">
                 <StarRating rating={review.rating} />
@@ -228,12 +217,23 @@ function ReviewCard({ review }: { review: ReviewItem }) {
               </div>
             </div>
           </div>
-          {/* Google Logo */}
-          <GoogleLogo className="w-16 h-5 flex-shrink-0 opacity-90" />
+          {/* Google Logo: goo.png on mobile screens, Full GoogleLogo on sm+ */}
+          <div className="flex-shrink-0 flex items-center">
+            <div className="block sm:hidden relative w-7 h-7 flex-shrink-0">
+              <Image
+                src="/images/goo.png"
+                alt="Google"
+                width={25}
+                height={25}
+                className="w-6 h-6 object-contain"
+              />
+            </div>
+            <GoogleLogo className="hidden sm:block w-16 h-5 flex-shrink-0 opacity-90" />
+          </div>
         </div>
 
         {/* Review Text */}
-        <p className="text-[12.5px] sm:text-[13px] text-[#374151] leading-[1.65] font-normal line-clamp-5">
+        <p className="text-[12px] sm:text-[13px] text-[#374151] leading-[1.65] font-normal line-clamp-5">
           &ldquo;{review.text}&rdquo;
         </p>
       </div>

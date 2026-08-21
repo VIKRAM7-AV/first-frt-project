@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <header className="w-full font-sans">
       {/* 1. Top Bar / Batch Bar (Announcement & Info Bar) */}
-      <div className="w-full bg-[#14532d] text-emerald-50 text-[12px] sm:text-[13px] py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 border-b border-emerald-800/40">
+      <div className="hidden lg:block w-full bg-[#14532d] text-emerald-50 text-[12px] sm:text-[13px] py-2 sm:py-2.5 px-4 sm:px-6 lg:px-8 border-b border-emerald-800/40">
         <div className="mx-auto max-w-[1280px] flex flex-wrap items-center justify-between gap-y-2 gap-x-4">
           {/* Left Location */}
           <div className="flex items-center gap-2">

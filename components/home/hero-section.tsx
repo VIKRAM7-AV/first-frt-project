@@ -31,7 +31,7 @@ export default function HeroSection() {
           duration: 1.05,
           ease: "power4.out",
           stagger: 0.14,
-        }
+        },
       )
         // 2. Subtitle / Paragraph with smooth blur dissolve
         .fromTo(
@@ -48,7 +48,7 @@ export default function HeroSection() {
             duration: 0.9,
             ease: "power3.out",
           },
-          "-=0.75"
+          "-=0.75",
         )
         // 3. Action Buttons with energetic scale & elevation
         .fromTo(
@@ -68,7 +68,7 @@ export default function HeroSection() {
             ease: "back.out(1.3)",
             stagger: 0.12,
           },
-          "-=0.6"
+          "-=0.6",
         )
         // 4. Feature Badges cascading in one by one
         .fromTo(
@@ -88,7 +88,7 @@ export default function HeroSection() {
             ease: "power3.out",
             stagger: 0.09,
           },
-          "-=0.55"
+          "-=0.55",
         );
     }, leftColRef);
 
@@ -104,15 +104,40 @@ export default function HeroSection() {
         {/* Faint natural greenery glow on the left */}
         <div className="absolute top-1/2 left-0 w-[450px] h-[450px] bg-radial from-emerald-100/30 to-transparent blur-3xl opacity-50" />
 
-        {/* Floating / Swaying Leaf Texture Background */}
+        {/* Floating / Swaying Leaf Texture Background (Responsive: mobile.png on mobile, tablet.png on tablet, leafimag.png on desktop) */}
         <div className="hero-leaves">
-          <Image
-            src="/images/leafimag.png"
-            alt="Natural leaf ambiance background"
-            fill
-            priority
-            className="object-contain object-center select-none pointer-events-none leaf-shadow-filter"
-          />
+          {/* Mobile Screen Background (< 640px) */}
+          <div className="block sm:hidden relative w-full h-full">
+            <Image
+              src="/images/mobile.png"
+              alt="Natural leaf ambiance background"
+              fill
+              priority
+              className="object-cover object-center select-none pointer-events-none leaf-shadow-filter"
+            />
+          </div>
+
+          {/* Tablet Screen Background (640px - 1023px) */}
+          <div className="hidden sm:block lg:hidden relative w-full h-full">
+            <Image
+              src="/images/tablet.png"
+              alt="Natural leaf ambiance background"
+              fill
+              priority
+              className="object-cover object-center select-none pointer-events-none leaf-shadow-filter"
+            />
+          </div>
+
+          {/* Desktop & Laptop Screen Background (>= 1024px) */}
+          <div className="hidden lg:block relative w-full h-full">
+            <Image
+              src="/images/leafimag.png"
+              alt="Natural leaf ambiance background"
+              fill
+              priority
+              className="object-contain object-center select-none pointer-events-none leaf-shadow-filter"
+            />
+          </div>
         </div>
       </div>
 
@@ -121,7 +146,7 @@ export default function HeroSection() {
           {/* Left Column: Headline, Description, CTAs, Features */}
           <div
             ref={leftColRef}
-            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center z-10"
+            className="lg:col-span-6 xl:col-span-6 flex flex-col justify-center items-start sm:items-center lg:items-start text-left sm:text-center lg:text-left z-10"
           >
             {/* Headline with Masked Line Wrappers for Cinematic Reveal */}
             <h1 className="text-4xl sm:text-5xl md:text-[54px] lg:text-[50px] xl:text-[62px] font-semibold tracking-tight text-[#111827] leading-[1.12]">
@@ -138,22 +163,22 @@ export default function HeroSection() {
             </h1>
 
             {/* Description */}
-            <p className="hero-anim-desc mt-5 sm:mt-6 text-base sm:text-lg text-[#4b5563] font-normal leading-[1.65] max-w-[480px] will-change-transform">
-              We supply premium quality Onion, Potato, Garlic, Eggs &amp; Fruits in
-              bulk at the best wholesale prices.
+            <p className="hero-anim-desc mt-5 sm:mt-6 text-base sm:text-lg text-[#4b5563] font-normal leading-[1.65] max-w-[480px] sm:max-w-[560px] lg:max-w-[480px] sm:mx-auto lg:mx-0 will-change-transform">
+              We supply premium quality Onion, Potato, Garlic, Eggs &amp; Fruits
+              in bulk at the best wholesale prices.
             </p>
 
             {/* Action Buttons */}
-            <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-7 sm:mt-8 flex items-center justify-start sm:justify-center lg:justify-start gap-2.5 sm:gap-4 flex-nowrap">
               {/* WhatsApp / Get a Quote Button */}
               <Link
                 href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20bulk%20produce"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hero-anim-btn inline-flex items-center justify-center gap-2.5 rounded-lg bg-[#14532d] px-6 sm:px-7 py-3.5 text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#0f4022] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 will-change-transform"
+                className="hero-anim-btn inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-lg bg-[#14532d] px-4 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#0f4022] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 will-change-transform whitespace-nowrap flex-shrink-0"
               >
                 <svg
-                  className="w-5 h-5 fill-current"
+                  className="w-4 h-4 sm:w-5 sm:h-5 fill-current flex-shrink-0"
                   viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                   aria-hidden="true"
@@ -167,16 +192,17 @@ export default function HeroSection() {
               <button
                 onClick={() => {
                   const el = document.getElementById("products");
-                  if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                  if (el)
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
                 }}
-                className="hero-anim-btn inline-flex items-center justify-center rounded-lg border border-[#14532d]/40 bg-white px-6 sm:px-7 py-3.5 text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:bg-[#14532d]/5 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0 will-change-transform cursor-pointer"
+                className="hero-anim-btn inline-flex items-center justify-center rounded-lg border border-[#14532d]/40 bg-white px-4 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:bg-[#14532d]/5 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0 will-change-transform cursor-pointer whitespace-nowrap flex-shrink-0"
               >
                 <span>View Products</span>
               </button>
             </div>
 
-            {/* Feature Badges Row */}
-            <div className="mt-10 sm:mt-14 pt-6 sm:pt-8 grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-x-6 sm:gap-x-8 lg:gap-x-7 xl:gap-x-9 gap-y-4 sm:gap-y-3">
+            {/* Feature Badges Row (Visible only on Desktop >= lg) */}
+            <div className="hidden lg:flex mt-10 lg:mt-14 pt-6 lg:pt-8 flex-wrap items-center gap-x-7 xl:gap-x-9 gap-y-3">
               {/* 1. Farm Produce */}
               <div className="hero-anim-badge flex items-center gap-2.5 will-change-transform">
                 <div className="flex-shrink-0 text-[#14532d]">
@@ -316,19 +342,19 @@ export default function HeroSection() {
 
               {/* Realistic Ground / Floor Shadow */}
               {/* 1. Deep Contact Core Shadow (tight, dense directly under basket base) */}
-              <div 
+              <div
                 aria-hidden="true"
-                className="absolute bottom-1 sm:bottom-2 md:bottom-3 left-1/2 -translate-x-1/2 w-[72%] sm:w-[70%] h-4 sm:h-6 rounded-[100%] bg-black/40 blur-[6px] sm:blur-[8px] z-0 pointer-events-none" 
+                className="absolute bottom-1 sm:bottom-2 md:bottom-3 left-1/2 -translate-x-1/2 w-[72%] sm:w-[70%] h-4 sm:h-6 rounded-[100%] bg-black/40 blur-[6px] sm:blur-[8px] z-0 pointer-events-none"
               />
               {/* 2. Mid Diffuse Floor Shadow */}
-              <div 
+              <div
                 aria-hidden="true"
-                className="absolute -bottom-1 sm:bottom-0 md:bottom-1 left-1/2 -translate-x-1/2 w-[86%] sm:w-[84%] h-8 sm:h-12 rounded-[100%] bg-amber-950/25 blur-md sm:blur-lg z-0 pointer-events-none" 
+                className="absolute -bottom-1 sm:bottom-0 md:bottom-1 left-1/2 -translate-x-1/2 w-[86%] sm:w-[84%] h-8 sm:h-12 rounded-[100%] bg-amber-950/25 blur-md sm:blur-lg z-0 pointer-events-none"
               />
               {/* 3. Soft Ambient Floor Spread Shadow */}
-              <div 
+              <div
                 aria-hidden="true"
-                className="absolute -bottom-3 sm:-bottom-2 md:-bottom-1 left-1/2 -translate-x-1/2 w-[96%] sm:w-[94%] h-12 sm:h-16 rounded-[100%] bg-slate-900/15 blur-xl sm:blur-2xl z-0 pointer-events-none" 
+                className="absolute -bottom-3 sm:-bottom-2 md:-bottom-1 left-1/2 -translate-x-1/2 w-[96%] sm:w-[94%] h-12 sm:h-16 rounded-[100%] bg-slate-900/15 blur-xl sm:blur-2xl z-0 pointer-events-none"
               />
             </div>
           </div>
