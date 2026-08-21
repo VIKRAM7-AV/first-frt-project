@@ -293,9 +293,35 @@ function ThankYouSection({ className = "" }: { className?: string }) {
    2. CORE EMBEDDABLE STAND-ALONE CARD (GoogleReviewCard)
    ========================================================================= */
 
+export const DEFAULT_WRITE_REVIEW_URL =
+  "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I";
+
+export function getDirectReviewUrl(url?: string): string {
+  if (!url) {
+    return DEFAULT_WRITE_REVIEW_URL;
+  }
+  if (url.includes("writereview")) {
+    return url;
+  }
+  const placeIdMatch =
+    url.match(/place_id:([a-zA-Z0-9_-]+)/) ||
+    url.match(/placeid=([a-zA-Z0-9_-]+)/);
+  if (placeIdMatch && placeIdMatch[1]) {
+    return `https://search.google.com/local/writereview?placeid=${placeIdMatch[1]}`;
+  }
+  if (
+    url.includes("maps.app.goo.gl") ||
+    url.includes("maps.google.com/?q=") ||
+    url.includes("cid=")
+  ) {
+    return DEFAULT_WRITE_REVIEW_URL;
+  }
+  return url;
+}
+
 export function GoogleReviewCard({
   businessName = "BK Fruits & Vegetables",
-  reviewUrl = "https://maps.app.goo.gl/VCuoaKdyEekxtTP19",
+  reviewUrl = DEFAULT_WRITE_REVIEW_URL,
   customLogo,
   onReviewClick,
   className = "",
@@ -308,8 +334,9 @@ export function GoogleReviewCard({
     if (onReviewClick) {
       onReviewClick();
     }
-    if (reviewUrl) {
-      window.open(reviewUrl, "_blank", "noopener,noreferrer");
+    const finalUrl = getDirectReviewUrl(reviewUrl);
+    if (finalUrl) {
+      window.open(finalUrl, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -376,12 +403,8 @@ export function GoogleReviewCard({
             </div>
 
             {/* Subtitle with bolded business name */}
-            <p className="text-xs sm:text-[14px] text-gray-700 font-medium max-w-[320px] sm:max-w-[380px] mt-1.5 leading-snug">
-              We&apos;d love to hear about your experience with{" "}
-              <span className="font-semibold text-gray-900">
-                {businessName}
-              </span>
-              .
+            <p className="text-xs sm:text-[13px] text-gray-700 font-regular max-w-[320px] sm:max-w-[380px] mt-1.5 leading-snug">
+              We&apos;d love to hear about your experience with our business.
             </p>
           </div>
 
@@ -400,7 +423,7 @@ export function GoogleReviewCard({
               onMouseLeave={() => setIsHovered(false)}
               onMouseDown={() => setIsPressed(true)}
               onMouseUp={() => setIsPressed(false)}
-              className={`w-full max-w-[340px] sm:max-w-[380px] py-3.5 sm:py-4 px-5 rounded-xl sm:rounded-2xl bg-[#1A73E8] hover:bg-[#1557B0] active:bg-[#0D47A1] text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-3 transition-all duration-200 cursor-pointer ${
+              className={`w-full max-w-[340px] sm:max-w-[380px] py-3 sm:py-3 px-5 rounded-xl sm:rounded-2xl bg-[#1A73E8] hover:bg-[#1557B0] active:bg-[#0D47A1] text-white font-semibold text-sm sm:text-base flex items-center justify-center gap-3 transition-all duration-200 cursor-pointer ${
                 isPressed
                   ? "scale-98"
                   : isHovered
@@ -423,7 +446,7 @@ export function GoogleReviewCard({
             </button>
 
             {/* Subtext Footnote */}
-            <p className="text-[11.5px] sm:text-xs text-gray-500 font-normal text-center mt-2">
+            <p className="text-[11.5px] sm:text-xs text-gray-500 font-normal text-center mt-3">
               Your review will be posted directly on Google.
             </p>
           </div>
@@ -464,7 +487,7 @@ export default function GoogleReviewModal({
   isOpen: controlledIsOpen,
   onClose: controlledOnClose,
   businessName = "BK Fruits & Vegetables",
-  reviewUrl = "https://maps.app.goo.gl/VCuoaKdyEekxtTP19",
+  reviewUrl = DEFAULT_WRITE_REVIEW_URL,
   customLogo,
   triggerText = "Leave a Google Review",
   showTrigger = true,

@@ -102,18 +102,17 @@ const FALLBACK_DATA: ReviewsResponse = {
   placeName: "BK Fruits & Vegetables Wholesale",
   rating: 4.9,
   totalReviews: 48,
-  googleMapsUrl: "https://maps.google.com/?cid=10586770726045866810",
+  googleMapsUrl:
+    "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I",
   reviews: FALLBACK_REVIEWS,
   isFallback: false,
 };
 
 export async function GET() {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  const placeId = process.env.GOOGLE_PLACE_ID;
+  const placeId = process.env.GOOGLE_PLACE_ID || "ChIJN_plTgDxqzsROtt3XOLD65I";
 
-  const defaultMapsUrl = placeId
-    ? `https://www.google.com/maps/place/?q=place_id:${placeId}`
-    : "https://maps.app.goo.gl/VCuoaKdyEekxtTP19";
+  const defaultMapsUrl = `https://search.google.com/local/writereview?placeid=${placeId}`;
 
   const fallbackResponse: ReviewsResponse = {
     ...FALLBACK_DATA,
@@ -180,7 +179,7 @@ export async function GET() {
           placeName: data.displayName?.text || "BK AND CO",
           rating: data.rating || 5.0,
           totalReviews: data.userRatingCount || 3,
-          googleMapsUrl: data.googleMapsUri || defaultMapsUrl,
+          googleMapsUrl: defaultMapsUrl,
           reviews: liveReviews.length >= 4 ? liveReviews : (liveReviews.length > 0 ? [...liveReviews, ...FALLBACK_REVIEWS.slice(0, 8 - liveReviews.length)] : FALLBACK_REVIEWS),
           isFallback: liveReviews.length === 0,
         },
@@ -232,7 +231,7 @@ export async function GET() {
             rating: legacyData.result.rating || 5,
             totalReviews:
               legacyData.result.user_ratings_total || validReviews.length,
-            googleMapsUrl: legacyData.result.url || defaultMapsUrl,
+            googleMapsUrl: defaultMapsUrl,
             reviews: validReviews.length > 0 ? validReviews : FALLBACK_REVIEWS,
             isFallback: false,
           },

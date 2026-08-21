@@ -249,7 +249,7 @@ export default function CustomerReviewSection() {
     rating: 4.9,
     totalReviews: 48,
     googleMapsUrl:
-      "https://maps.google.com/?q=No.28,+Chairman+Rajarathnam+Street,+Opp.+Kamala+Hospital,+Salem+-+636001",
+      "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I",
     reviews: INITIAL_REVIEWS,
     isFallback: true,
   });
@@ -495,7 +495,7 @@ export default function CustomerReviewSection() {
         onClose={() => setIsReviewModalOpen(false)}
         showTrigger={false}
         businessName="BK Vegetables"
-        reviewUrl={data.googleMapsUrl || "https://maps.app.goo.gl/VCuoaKdyEekxtTP19"}
+        reviewUrl={data.googleMapsUrl || "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I"}
         logoText="BK & Co"
         logoSubtext="Vegetables"
       />
