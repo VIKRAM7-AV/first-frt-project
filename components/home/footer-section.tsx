@@ -41,7 +41,7 @@ export default function FooterSection() {
             start: "top 90%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
 
       /* Bottom bar slide up */
@@ -59,7 +59,7 @@ export default function FooterSection() {
             start: "top 98%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }, footerRef);
 
@@ -103,7 +103,7 @@ export default function FooterSection() {
             <div className="flex items-center gap-3">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/919363526993?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote."
+                href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -120,7 +120,7 @@ export default function FooterSection() {
 
               {/* Phone */}
               <a
-                href="tel:+919363526993"
+                href="tel:+918489934449"
                 aria-label="Call Us"
                 className="w-9 h-9 rounded-lg bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-gray-400 transition-all duration-200 hover:bg-white hover:text-[#1a1a1a] hover:border-white hover:-translate-y-0.5"
               >
@@ -248,8 +248,8 @@ export default function FooterSection() {
                     Address
                   </span>
                   <span className="text-sm text-gray-400 leading-relaxed">
-                    No.28, Chairman Rajarathnam Street,
-                    Opp. Kamala Hospital, Salem - 636001
+                    No.28, Chairman Rajarathnam Street, Opp. Kamala Hospital,
+                    Salem - 636001
                   </span>
                 </div>
               </li>
@@ -274,16 +274,16 @@ export default function FooterSection() {
                     Phone
                   </span>
                   <a
-                    href="tel:+919363526993"
-                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
-                  >
-                    +91 93635 26993
-                  </a>
-                  <a
                     href="tel:+918489934449"
                     className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
                   >
                     +91 84899 34449
+                  </a>
+                  <a
+                    href="tel:+919363526993"
+                    className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+                  >
+                    +91 93635 26993
                   </a>
                 </div>
               </li>
@@ -326,8 +326,8 @@ export default function FooterSection() {
         <div className="footer-bottom-bar flex flex-col sm:flex-row items-center justify-between gap-3 text-[12.5px] sm:text-[13px] text-gray-500">
           <p>
             © {new Date().getFullYear()}{" "}
-            <span className="font-semibold text-gray-300">BK AND CO</span>
-            . All rights reserved.
+            <span className="font-semibold text-gray-300">BK AND CO</span>. All
+            rights reserved.
           </p>
           <p className="flex items-center gap-1.5">
             <span>Wholesale Fresh Produce</span>

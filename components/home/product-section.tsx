@@ -130,7 +130,10 @@ const FEATURES: FeatureItem[] = [
           transform="rotate(45 24 24)"
         />
         <circle cx="24" cy="9.5" r="2" fill="currentColor" />
-        <path d="M20 19h8M20 23.5h6.5M20 19v9M25.5 19a2.5 2.5 0 0 1 0 5h-5.5M23 24l5 7" strokeWidth="2.2" />
+        <path
+          d="M20 19h8M20 23.5h6.5M20 19v9M25.5 19a2.5 2.5 0 0 1 0 5h-5.5M23 24l5 7"
+          strokeWidth="2.2"
+        />
       </svg>
     ),
   },
@@ -334,8 +337,12 @@ export default function ProductSection() {
       const bottomContainer = bottomContentRef.current;
       if (!bottomContainer) return;
 
-      const featureItems = bottomContainer.querySelectorAll(".feature-strip-item");
-      const featureStrip = bottomContainer.querySelector(".feature-strip-container");
+      const featureItems = bottomContainer.querySelectorAll(
+        ".feature-strip-item",
+      );
+      const featureStrip = bottomContainer.querySelector(
+        ".feature-strip-container",
+      );
       const bannerCard = bottomContainer.querySelector(".bulk-banner-card");
       const bannerImage = bottomContainer.querySelector(".bulk-banner-image");
 
@@ -355,7 +362,7 @@ export default function ProductSection() {
               start: "top 90%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
 
@@ -375,7 +382,7 @@ export default function ProductSection() {
               start: "top 85%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
 
@@ -395,7 +402,7 @@ export default function ProductSection() {
               start: "top 85%",
               toggleActions: "play none none none",
             },
-          }
+          },
         );
       }
     }, sectionRef);
@@ -466,7 +473,6 @@ export default function ProductSection() {
                 className="absolute inset-0 w-full h-full flex items-center justify-center will-change-transform"
               >
                 <div className="relative w-full max-w-[1280px] px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-center">
-
                   {/* LEFT COLUMN: Product Image with Floor Shadow & Ambient Light */}
                   <div className="lg:col-span-6 relative flex items-center justify-center z-10">
                     <div className="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[420px] flex flex-col items-center justify-center">
@@ -515,7 +521,7 @@ export default function ProductSection() {
                     <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-3.5">
                       {/* Get Bulk Quote (WhatsApp Link) */}
                       {/* <Link
-                        href={`https://wa.me/?text=${encodeURIComponent(
+                        href={`https://wa.me/918489934449?text=${encodeURIComponent(
                           product.quoteMessage,
                         )}`}
                         target="_blank"
@@ -535,7 +541,7 @@ export default function ProductSection() {
 
                       {/* Call Direct */}
                       <a
-                        href="tel:+919363526993"
+                        href="tel:+918489934449"
                         className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#14532d]/40 px-7 sm:px-10 py-2.5 text-sm sm:text-base font-semibold text-[#1f2937] shadow-xs transition-all duration-200 hover:border-[#14532d] hover:text-[#14532d] hover:-translate-y-0.5 active:translate-y-0"
                       >
                         <svg
@@ -563,10 +569,7 @@ export default function ProductSection() {
       {/* ================================================================= */}
       {/* BOTTOM CONTENT — Normal vertical scroll after pinned slides end   */}
       {/* ================================================================= */}
-      <div
-        ref={bottomContentRef}
-        className="relative z-10 w-full"
-      >
+      <div ref={bottomContentRef} className="relative z-10 w-full">
         <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 flex flex-col gap-6 sm:gap-8 py-8 sm:py-12 lg:py-14">
           {/* 5-Feature Trust & Value Proposition Strip */}
           <div className="feature-strip-container w-full bg-[#eef5ed] border border-[#dce8da] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-xs">
@@ -593,7 +596,13 @@ export default function ProductSection() {
           </div>
 
           {/* "Need Bulk Supply?" Dark Green Banner Card */}
-          <div className="bulk-banner-card relative w-full rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20" style={{ background: 'linear-gradient(135deg, #032e16 0%, #065a2b 30%, #0a7e3a 55%, #05601e 80%, #043317 100%)' }}>
+          <div
+            className="bulk-banner-card relative w-full rounded-2xl sm:rounded-3xl border border-[#0d5929]/60 overflow-hidden shadow-xl shadow-emerald-950/20"
+            style={{
+              background:
+                "linear-gradient(135deg, #032e16 0%, #065a2b 30%, #0a7e3a 55%, #05601e 80%, #043317 100%)",
+            }}
+          >
             {/* Subtle Ambient Lighting Overlay */}
             <div
               aria-hidden="true"
@@ -620,7 +629,7 @@ export default function ProductSection() {
                 {/* WhatsApp CTA Button */}
                 <div className="mt-6 sm:mt-8 flex items-center">
                   <Link
-                    href="https://wa.me/919363526993?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
+                    href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2.5 rounded-xl bg-white px-5 sm:px-6 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-[#0d4722] shadow-md shadow-black/15 transition-all duration-200 hover:bg-emerald-50 hover:shadow-lg hover:shadow-black/25 hover:-translate-y-0.5 active:translate-y-0"

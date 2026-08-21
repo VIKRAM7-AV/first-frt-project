@@ -94,7 +94,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3 sm:gap-4 lg:gap-6 flex-shrink-0">
             {/* Get a Quote Button */}
             {/* <Link
-              href="https://wa.me/?text=Hello%20Freshway%20Wholesale%2C%20I%20would%20like%20to%20get%20a%20quote"
+              href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20quote"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#14532d] bg-white px-3.5 sm:px-4.5 py-2 text-xs sm:text-sm font-semibold text-[#14532d] shadow-xs transition-all duration-200 hover:bg-[#14532d] hover:text-white hover:shadow-sm"
@@ -111,7 +111,7 @@ export default function Navbar() {
 
             {/* Call Us Contact */}
             <a
-              href="tel:+919363526993"
+              href="tel:+918489934449"
               className="flex items-center gap-2 sm:gap-2.5 group/call transition-opacity hover:opacity-90"
             >
               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-emerald-600/35 bg-emerald-50 flex items-center justify-center text-[#14532d] transition-colors group-hover/call:bg-[#14532d] group-hover/call:text-white">
@@ -132,7 +132,7 @@ export default function Navbar() {
                   Call Us
                 </span>
                 <span className="text-[12.5px] sm:text-[13.5px] font-bold text-[#111827] leading-tight tracking-tight whitespace-nowrap">
-                  +91 93635 26993
+                  +91 84899 34449
                 </span>
               </div>
             </a>
