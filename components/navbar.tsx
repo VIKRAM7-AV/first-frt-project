@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   return (
@@ -76,18 +77,20 @@ export default function Navbar() {
 
       {/* 2. Main Navigation Bar */}
       <nav className="w-full bg-white border-b border-stone-200/90 shadow-xs relative z-30">
-        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4 flex items-center justify-between gap-4">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-2 sm:py-2 flex items-center justify-between gap-4">
           {/* Brand Logo */}
           <Link
             href="/"
             className="flex items-center gap-2.5 group select-none flex-shrink-0"
           >
-            {/* Brand Text */}
-            <div className="flex flex-col">
-              <span className="text-xl sm:text-3xl font-black tracking-tight text-[#14532d] leading-none">
-                BK AND CO
-              </span>
-            </div>
+            <Image
+              src="/images/logo.png"
+              alt="BK AND CO"
+              width={160}
+              height={48}
+              priority
+              className="h-10 sm:h-14 w-auto object-contain"
+            />
           </Link>
 
           {/* Right Action Elements (Quote + Call Us) */}
