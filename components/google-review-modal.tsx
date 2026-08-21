@@ -577,7 +577,7 @@ export default function GoogleReviewModal({
           role="dialog"
           aria-modal="true"
           aria-labelledby={`${dialogId}-title`}
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto"
+          className="fixed inset-0 z-[1050] flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto"
         >
           {/* Backdrop with Smooth Glass Blur */}
           <div

@@ -57,6 +57,9 @@ export default async function OGImage() {
         {/* Headline */}
         <div
           style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "0 16px",
             fontSize: 72,
             fontWeight: 800,
             color: "#111827",
@@ -65,7 +68,7 @@ export default async function OGImage() {
             maxWidth: 800,
           }}
         >
-          Fresh Quality.{" "}
+          <span>Fresh Quality.</span>{" "}
           <span style={{ color: "#14532d" }}>Wholesale Prices.</span>
         </div>
 
