@@ -30,7 +30,7 @@ const PRODUCTS: ProductItem[] = [
     id: "onions",
     name: "Farm-Fresh Red Onions",
     watermark: "ONIONS",
-    image: "/images/Onion.png",
+    image: "/images/onion.png",
     description:
       "Sourced directly from trusted farms, our premium red onions feature firm texture and uniform size. Perfectly cured for minimal weight loss and long shelf life, making them ideal for restaurants, caterers, and retail resellers in 25kg and 50kg bulk bags.",
     accentBg: "from-red-500/10 via-amber-500/5 to-transparent",
