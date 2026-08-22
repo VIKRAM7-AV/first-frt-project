@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title:
     "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices",
   description:
-    "Check today's live Tamil Nadu State Mandi wholesale market prices for Big Onion, Small Onion (Shallots), Potato, Garlic, Table Eggs & Seasonal Fruits. Official Government of India Mandi feed updated daily by BK AND CO.",
+    "Live Tamil Nadu daily mandi wholesale rates for Big Onion, Small Onion, Potato, Garlic, Eggs & Fruits. Official daily market prices from BK AND CO.",
   keywords: [
     "Tamil Nadu mandi rates today",
     "தமிழ்நாடு தினசரி காய்கறி விலை",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title:
       "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK AND CO",
     description:
-      "Check today's live Tamil Nadu State Mandi wholesale market prices for Onion, Shallots, Potato, Garlic, Eggs & Seasonal Fruits. Official daily market feed.",
+      "Live Tamil Nadu wholesale mandi prices for Onion, Shallots, Potato, Garlic, Eggs & Fruits updated daily by BK AND CO.",
     locale: "en_IN",
     images: [
       {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     title:
       "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK AND CO",
     description:
-      "Check today's live Tamil Nadu State Mandi wholesale prices for Onion, Shallots, Potato, Garlic, Eggs & Seasonal Fruits.",
+      "Live Tamil Nadu wholesale mandi prices for Onion, Shallots, Potato, Garlic, Eggs & Fruits updated daily by BK AND CO.",
     images: ["/og-image.png"],
   },
 };

@@ -45,7 +45,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkfarms.in";
 const SITE_NAME = "BK AND CO";
 const SITE_TITLE = "BK AND CO — Fresh Wholesale Produce, Salem";
 const SITE_DESCRIPTION =
-  "BK AND CO is Salem's trusted wholesale supplier of farm-fresh Onion, Potato, Garlic, Eggs & Seasonal Fruits. Bulk orders, competitive prices, on-time delivery across Tamil Nadu.";
+  "Salem's trusted wholesale supplier of farm-fresh Onion, Potato, Garlic, Eggs & Fruits. Bulk orders, best mandi prices & fast Tamil Nadu delivery.";
+const SITE_OG_DESCRIPTION =
+  "Salem's trusted bulk supplier of farm-fresh Onion, Potato, Garlic, Eggs & Fruits at daily wholesale mandi rates.";
 const SITE_KEYWORDS = [
   "Tamil Nadu mandi rates today",
   "தமிழ்நாடு தினசரி காய்கறி விலை",
@@ -124,7 +126,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    description: SITE_OG_DESCRIPTION,
     locale: "en_IN",
     images: [
       {
@@ -140,7 +142,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    description: SITE_OG_DESCRIPTION,
     images: ["/og-image.png"],
   },
 
