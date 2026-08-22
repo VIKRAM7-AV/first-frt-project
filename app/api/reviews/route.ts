@@ -22,13 +22,13 @@ export interface ReviewsResponse {
   isFallback: boolean;
 }
 
-// Verified reviews for BK Fruits & Vegetables Wholesale (Salem)
+// Verified reviews for BK AND CO Wholesale (Salem)
 const FALLBACK_REVIEWS: ReviewItem[] = [
   {
     id: "g-review-1",
     name: "Jeevanandam Govindasamy",
     rating: 5,
-    text: "We have been sourcing onions, potatoes, and garlic in bulk for our restaurant kitchen from BK & Co for over a year. Outstanding freshness, uniform grading, and prompt morning delivery every time. Their wholesale rates in Salem are truly unbeatable!",
+    text: "We have been sourcing onions, potatoes, and garlic in bulk for our restaurant kitchen from BK AND CO for over a year. Outstanding freshness, uniform grading, and prompt morning delivery every time. Their wholesale rates in Salem are truly unbeatable!",
     avatar: "https://lh3.googleusercontent.com/a-/ALV-UjUbYc1UEPQTuGMVkXO_1BDq7H4AsI2XBKqurchun0U_mNABtX9x=s128-c0x00000000-cc-rp-mo",
     relativeTime: "1 week ago",
     authorUrl: "https://www.google.com/maps/contrib/107492868102198825514/reviews",
@@ -37,7 +37,7 @@ const FALLBACK_REVIEWS: ReviewItem[] = [
     id: "g-review-2",
     name: "Karthik Raja (Sri Balaji Catering)",
     rating: 5,
-    text: "Ordered 500kg of farm-fresh red onions, table eggs, and seasonal fruits for a 3-day wedding catering event. Every single sack was top grade with zero spoilage. The BK team packed everything in clean crates and delivered right on schedule!",
+    text: "Ordered 500kg of farm-fresh red onions, table eggs, and seasonal fruits for a 3-day wedding catering event. Every single sack was top grade with zero spoilage. The BK AND CO team packed everything in clean crates and delivered right on schedule!",
     avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVsA3Z6AcepHnyjSU4r9KGTQB4tALb9Kv1vCpZPxtZufqaQLZ2e=s128-c0x00000000-cc-rp-mo",
     relativeTime: "2 weeks ago",
     authorUrl: "https://www.google.com/maps/contrib/105353737871369576345/reviews",
@@ -55,7 +55,7 @@ const FALLBACK_REVIEWS: ReviewItem[] = [
     id: "g-review-4",
     name: "Suresh Kumar (Annapoorna Mess)",
     rating: 5,
-    text: "Reliable daily supply of premium potatoes and table eggs for our mess catering. Clean sorting, consistent size, and no wastage during cooking. Thank you to the BK team for their honest business ethics and timely vehicle dispatch.",
+    text: "Reliable daily supply of premium potatoes and table eggs for our mess catering. Clean sorting, consistent size, and no wastage during cooking. Thank you to the BK AND CO team for their honest business ethics and timely vehicle dispatch.",
     avatar: "https://lh3.googleusercontent.com/a/ACg8ocJWulji1-6JPlmDEX-iV0WtIZktjgYOaZib01VNNehspUOpZQ=s128-c0x00000000-cc-rp-mo",
     relativeTime: "1 month ago",
     authorUrl: "https://www.google.com/maps/contrib/112449926233174978274/reviews",
@@ -73,7 +73,7 @@ const FALLBACK_REVIEWS: ReviewItem[] = [
     id: "g-review-6",
     name: "Poornima R.",
     rating: 5,
-    text: "Consistently exceptional quality fresh produce and prompt delivery. Always on time, very transparent and cooperative team. Highly recommend BK & CO in Salem for anyone looking for bulk vegetables and fruits!",
+    text: "Consistently exceptional quality fresh produce and prompt delivery. Always on time, very transparent and cooperative team. Highly recommend BK AND CO in Salem for anyone looking for bulk vegetables and fruits!",
     avatar: null,
     relativeTime: "2 months ago",
     authorUrl: "https://maps.google.com/?cid=10586770726045866810",
@@ -91,7 +91,7 @@ const FALLBACK_REVIEWS: ReviewItem[] = [
     id: "g-review-8",
     name: "Ramesh Chandran",
     rating: 5,
-    text: "Quality of onions and garlic supplied is consistently top-grade with great aroma and long shelf life. Seamless bulk vehicle loading and fair market wholesale prices. BK & Co is our trusted supplier in Salem.",
+    text: "Quality of onions and garlic supplied is consistently top-grade with great aroma and long shelf life. Seamless bulk vehicle loading and fair market wholesale prices. BK AND CO is our trusted supplier in Salem.",
     avatar: null,
     relativeTime: "3 months ago",
     authorUrl: "https://maps.google.com/?cid=10586770726045866810",
@@ -99,7 +99,7 @@ const FALLBACK_REVIEWS: ReviewItem[] = [
 ];
 
 const FALLBACK_DATA: ReviewsResponse = {
-  placeName: "BK Fruits & Vegetables Wholesale",
+  placeName: "BK AND CO",
   rating: 4.9,
   totalReviews: 48,
   googleMapsUrl:

@@ -35,7 +35,7 @@ const PRODUCTS: ProductItem[] = [
       "Sourced directly from trusted farms, our premium red onions feature firm texture and uniform size. Perfectly cured for minimal weight loss and long shelf life, making them ideal for restaurants, caterers, and retail resellers in 25kg and 50kg bulk bags.",
     accentBg: "from-red-500/10 via-amber-500/5 to-transparent",
     quoteMessage:
-      "Hello Freshway Wholesale, I would like to get a wholesale quote for Farm-Fresh Red Onions in bulk.",
+      "Hello BK AND CO, I would like to get a wholesale quote for Farm-Fresh Red Onions in bulk.",
   },
   {
     id: "potatoes",
@@ -46,7 +46,7 @@ const PRODUCTS: ProductItem[] = [
       "High-grade, sorted potatoes suited for everyday cooking, commercial curries, and frying. Thoroughly inspected for minimal spoilage and damage, packed securely in bulk sacks to ensure maximum freshness during transit and storage.",
     accentBg: "from-amber-500/10 via-yellow-500/5 to-transparent",
     quoteMessage:
-      "Hello Freshway Wholesale, I would like to get a wholesale quote for Premium Quality Potatoes in bulk.",
+      "Hello BK AND CO, I would like to get a wholesale quote for Premium Quality Potatoes in bulk.",
   },
   {
     id: "eggs",
@@ -57,7 +57,7 @@ const PRODUCTS: ProductItem[] = [
       "Freshly collected, uniform white table eggs delivered daily from bio-secure farms. Carefully graded, sanitized, and packed in heavy-duty wholesale trays (30-egg trays / 210-egg master cartons) for supermarkets, bakeries, and cloud kitchens.",
     accentBg: "from-orange-500/10 via-amber-500/5 to-transparent",
     quoteMessage:
-      "Hello Freshway Wholesale, I would like to get a wholesale quote for Farm-Fresh Table Eggs in bulk.",
+      "Hello BK AND CO, I would like to get a wholesale quote for Farm-Fresh Table Eggs in bulk.",
   },
   {
     id: "garlic",
@@ -68,7 +68,7 @@ const PRODUCTS: ProductItem[] = [
       "Superior-grade whole garlic bulbs featuring tightly packed, large cloves with high essential oil content and robust aroma. Sourced for commercial food processors, spice blenders, and bulk grocery suppliers with excellent dry-storage longevity.",
     accentBg: "from-yellow-600/10 via-amber-500/5 to-transparent",
     quoteMessage:
-      "Hello Freshway Wholesale, I would like to get a wholesale quote for Bold Clove Garlic in bulk.",
+      "Hello BK AND CO, I would like to get a wholesale quote for Bold Clove Garlic in bulk.",
   },
   {
     id: "fruits",
@@ -79,7 +79,7 @@ const PRODUCTS: ProductItem[] = [
       "A versatile wholesale range of daily and seasonal fruits, including bananas, apples, citrus, and melons. Hand-picked at peak maturity and packed in ventilated crates to serve juice bars, catering events, and fruit retail outlets.",
     accentBg: "from-emerald-500/10 via-lime-500/5 to-transparent",
     quoteMessage:
-      "Hello Freshway Wholesale, I would like to get a wholesale quote for Fresh Seasonal & Commercial Fruits in bulk.",
+      "Hello BK AND CO, I would like to get a wholesale quote for Fresh Seasonal & Commercial Fruits in bulk.",
   },
 ];
 
@@ -623,7 +623,7 @@ export default function ProductSection() {
                 {/* WhatsApp CTA Button */}
                 <div className="mt-3 xs:mt-4 sm:mt-6 flex items-center">
                   <Link
-                    href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
+                    href="https://wa.me/918489934449?text=Hello%20BK%20AND%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote%20for%20my%20business."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2 xs:px-4.5 xs:py-2.5 sm:px-6 sm:py-3.5 text-xs sm:text-base font-semibold text-[#0d4722] shadow-md shadow-black/15 transition-all duration-200 hover:bg-emerald-50 hover:shadow-lg hover:shadow-black/25 hover:-translate-y-0.5 active:translate-y-0"

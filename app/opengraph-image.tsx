@@ -112,7 +112,7 @@ export default async function OGImage() {
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ fontSize: 22, fontWeight: 700, color: "#111827" }}>
-              BK &amp; Co
+              BK AND CO
             </span>
             <span style={{ fontSize: 16, color: "#6b7280" }}>bkfarms.in</span>
           </div>

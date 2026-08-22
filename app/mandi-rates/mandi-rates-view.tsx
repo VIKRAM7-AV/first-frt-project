@@ -44,8 +44,8 @@ const FAQS = [
     a: "The Minimum and Maximum prices represent the day's auction range based on quality grades. The Modal Price is the most frequent wholesale trading rate at which the highest volume of produce was transacted across Tamil Nadu state markets.",
   },
   {
-    q: "Can businesses place bulk wholesale orders directly through BK & Co across Tamil Nadu?",
-    a: "Yes. BK & Co specializes in wholesale supply for supermarkets, hotels, restaurants, catering companies, hostel messes, and retail vendors across Tamil Nadu. You can request customized daily or weekly wholesale consignments in bags (25kg/50kg), crates, or trays.",
+    q: "Can businesses place bulk wholesale orders directly through BK AND CO across Tamil Nadu?",
+    a: "Yes. BK AND CO specializes in wholesale supply for supermarkets, hotels, restaurants, catering companies, hostel messes, and retail vendors across Tamil Nadu. You can request customized daily or weekly wholesale consignments in bags (25kg/50kg), crates, or trays.",
   },
   {
     q: "Which locations are covered for wholesale doorstep delivery across Tamil Nadu?",
@@ -64,7 +64,9 @@ export default function MandiRatesView({
 }: MandiRatesViewProps) {
   const [products] = useState<TargetProduct[]>(initialProducts);
   const [unitMode, setUnitMode] = useState<"kg" | "qtl">("kg");
-  const [categoryFilter, setCategoryFilter] = useState<"all" | "vegetables" | "fruits" | "eggs">("all");
+  const [categoryFilter, setCategoryFilter] = useState<
+    "all" | "vegetables" | "fruits" | "eggs"
+  >("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -73,7 +75,13 @@ export default function MandiRatesView({
   const filteredProducts = useMemo(() => {
     return products.filter((item) => {
       const isEgg = item.id.startsWith("eggs");
-      const isFruit = ["orange", "mango", "watermelon", "muskmelon", "pomegranate"].includes(item.id);
+      const isFruit = [
+        "orange",
+        "mango",
+        "watermelon",
+        "muskmelon",
+        "pomegranate",
+      ].includes(item.id);
       const isVeg = !isEgg && !isFruit;
 
       if (categoryFilter === "vegetables" && !isVeg) return false;
@@ -92,11 +100,19 @@ export default function MandiRatesView({
     });
   }, [products, categoryFilter, searchQuery]);
 
-  const handleWhatsAppQuote = (product: TargetProduct, modalPrice: number, unitLabel: string) => {
+  const handleWhatsAppQuote = (
+    product: TargetProduct,
+    modalPrice: number,
+    unitLabel: string,
+  ) => {
     const text = encodeURIComponent(
-      `வணக்கம் / Hello BK & Co, I am inquiring from your Tamil Nadu Mandi Rates page regarding bulk wholesale order for *${product.name} (${product.tamilName})*.\nToday's Modal Rate: ₹${modalPrice} ${unitLabel}.\nCould you please share minimum order quantities and bulk delivery schedule?`
+      `வணக்கம் / Hello BK AND CO, I am inquiring from your Tamil Nadu Mandi Rates page regarding bulk wholesale order for *${product.name} (${product.tamilName})*.\nToday's Modal Rate: ₹${modalPrice} ${unitLabel}.\nCould you please share minimum order quantities and bulk delivery schedule?`,
     );
-    window.open(`https://wa.me/918489934449?text=${text}`, "_blank", "noopener,noreferrer");
+    window.open(
+      `https://wa.me/918489934449?text=${text}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
   };
 
   return (
@@ -128,26 +144,44 @@ export default function MandiRatesView({
             Today Tamil Nadu Mandi Wholesale Rates
           </h1>
           <p className="text-emerald-100/90 text-sm sm:text-base max-w-2xl mx-auto font-normal">
-            தமிழ்நாடு தினசரி காய்கறி மற்றும் பழங்கள் மொத்த விலை நிலவரம் — Live daily wholesale agricultural commodity market prices for Onion, Shallots, Potato, Garlic, Eggs & Seasonal Fruits across Tamil Nadu.
+            தமிழ்நாடு தினசரி காய்கறி மற்றும் பழங்கள் மொத்த விலை நிலவரம் — Live
+            daily wholesale agricultural commodity market prices for Onion,
+            Shallots, Potato, Garlic, Eggs & Seasonal Fruits across Tamil Nadu.
           </p>
 
           {/* Quick Stats Bar */}
           <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
             <div className="bg-white/10 backdrop-blur-xs border border-white/15 rounded-xl p-3 text-center">
-              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">State Market</span>
-              <span className="font-bold text-sm sm:text-base text-white">Tamil Nadu (State-wide)</span>
+              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">
+                State Market
+              </span>
+              <span className="font-bold text-sm sm:text-base text-white">
+                Tamil Nadu (State-wide)
+              </span>
             </div>
             <div className="bg-white/10 backdrop-blur-xs border border-white/15 rounded-xl p-3 text-center">
-              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">Arrival Date</span>
-              <span className="font-bold text-sm sm:text-base text-white">{arrivalDate}</span>
+              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">
+                Arrival Date
+              </span>
+              <span className="font-bold text-sm sm:text-base text-white">
+                {arrivalDate}
+              </span>
             </div>
             <div className="bg-white/10 backdrop-blur-xs border border-white/15 rounded-xl p-3 text-center">
-              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">Commodities</span>
-              <span className="font-bold text-sm sm:text-base text-white">{products.length} Key Products</span>
+              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">
+                Commodities
+              </span>
+              <span className="font-bold text-sm sm:text-base text-white">
+                {products.length} Key Products
+              </span>
             </div>
             <div className="bg-white/10 backdrop-blur-xs border border-white/15 rounded-xl p-3 text-center">
-              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">Wholesale Supply</span>
-              <span className="font-bold text-sm sm:text-base text-white">BK & Co Tamil Nadu</span>
+              <span className="text-[11px] text-emerald-200 uppercase tracking-wider block">
+                Wholesale Supply
+              </span>
+              <span className="font-bold text-sm sm:text-base text-white">
+                BK AND CO Tamil Nadu
+              </span>
             </div>
           </div>
         </div>
@@ -267,9 +301,12 @@ export default function MandiRatesView({
         >
           {filteredProducts.map((product, idx) => {
             const isEgg = product.id.startsWith("eggs");
-            const modalPrice = unitMode === "kg" ? product.modalPriceKg : product.modalPriceQtl;
-            const minPrice = unitMode === "kg" ? product.minPriceKg : product.minPriceQtl;
-            const maxPrice = unitMode === "kg" ? product.maxPriceKg : product.maxPriceQtl;
+            const modalPrice =
+              unitMode === "kg" ? product.modalPriceKg : product.modalPriceQtl;
+            const minPrice =
+              unitMode === "kg" ? product.minPriceKg : product.minPriceQtl;
+            const maxPrice =
+              unitMode === "kg" ? product.maxPriceKg : product.maxPriceQtl;
 
             const unitLabel = isEgg
               ? unitMode === "kg"
@@ -339,7 +376,10 @@ export default function MandiRatesView({
                     <meta itemProp="lowPrice" content={String(minPrice)} />
                     <meta itemProp="highPrice" content={String(maxPrice)} />
                     <meta itemProp="price" content={String(modalPrice)} />
-                    <link itemProp="availability" href="https://schema.org/InStock" />
+                    <link
+                      itemProp="availability"
+                      href="https://schema.org/InStock"
+                    />
 
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-[11px] font-medium text-stone-500 uppercase tracking-wider">
@@ -373,7 +413,9 @@ export default function MandiRatesView({
                 {/* Direct Action Button (WhatsApp Bulk Inquiry) */}
                 <button
                   type="button"
-                  onClick={() => handleWhatsAppQuote(product, modalPrice, unitLabel)}
+                  onClick={() =>
+                    handleWhatsAppQuote(product, modalPrice, unitLabel)
+                  }
                   className="w-full py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-xs hover:shadow-md transition-all cursor-pointer"
                 >
                   <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
@@ -388,7 +430,9 @@ export default function MandiRatesView({
 
         {filteredProducts.length === 0 && (
           <div className="text-center py-12 bg-white rounded-2xl border border-stone-200 mt-6">
-            <p className="text-stone-500 text-sm">No produce found matching &quot;{searchQuery}&quot;.</p>
+            <p className="text-stone-500 text-sm">
+              No produce found matching &quot;{searchQuery}&quot;.
+            </p>
             <button
               type="button"
               onClick={() => {
@@ -407,10 +451,20 @@ export default function MandiRatesView({
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-3 flex items-center gap-2">
               <span>🌾</span>
-              <span>About Tamil Nadu Mandi Produce Rates & Wholesale Distribution</span>
+              <span>
+                About Tamil Nadu Mandi Produce Rates & Wholesale Distribution
+              </span>
             </h2>
             <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-              Tamil Nadu is one of India&apos;s leading agricultural powerhouses, linking major farming belts across Namakkal, Dharmapuri, Krishnagiri, Dindigul, Erode, and Coimbatore with retail and institutional markets across South India. Daily commodity auctions conducted under Agricultural Produce Market Committees (APMC) and verified through Government of India feeds establish the benchmark wholesale prices for staple produce including Red Onions, Small Onions (Shallots), Potatoes, Bold Garlic, and Farm-Fresh Poultry Eggs.
+              Tamil Nadu is one of India&apos;s leading agricultural
+              powerhouses, linking major farming belts across Namakkal,
+              Dharmapuri, Krishnagiri, Dindigul, Erode, and Coimbatore with
+              retail and institutional markets across South India. Daily
+              commodity auctions conducted under Agricultural Produce Market
+              Committees (APMC) and verified through Government of India feeds
+              establish the benchmark wholesale prices for staple produce
+              including Red Onions, Small Onions (Shallots), Potatoes, Bold
+              Garlic, and Farm-Fresh Poultry Eggs.
             </p>
           </div>
 
@@ -421,7 +475,10 @@ export default function MandiRatesView({
                 Direct Farm Gate Sourcing
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                By eliminating multiple middlemen layers, BK & Co secures farm-gate procurement from trusted cultivators across Tamil Nadu, passing competitive state modal mandi pricing directly to wholesale buyers.
+                By eliminating multiple middlemen layers, BK AND CO secures
+                farm-gate procurement from trusted cultivators across Tamil
+                Nadu, passing competitive state modal mandi pricing directly to
+                wholesale buyers.
               </p>
             </div>
 
@@ -431,7 +488,9 @@ export default function MandiRatesView({
                 Rigorous Quality Grading
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Every consignment undergoes manual inspection and mechanized grading for uniform size, moisture curing, and zero spoilage before bagging and dispatch across Tamil Nadu.
+                Every consignment undergoes manual inspection and mechanized
+                grading for uniform size, moisture curing, and zero spoilage
+                before bagging and dispatch across Tamil Nadu.
               </p>
             </div>
 
@@ -441,7 +500,9 @@ export default function MandiRatesView({
                 Statewide B2B Logistics
               </h3>
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                Equipped for commercial scale delivery to hotel chains, institutional caterers, supermarkets, and wholesale distributors with scheduled morning dispatches.
+                Equipped for commercial scale delivery to hotel chains,
+                institutional caterers, supermarkets, and wholesale distributors
+                with scheduled morning dispatches.
               </p>
             </div>
           </div>
@@ -457,7 +518,8 @@ export default function MandiRatesView({
               Frequently Asked Questions on Tamil Nadu Mandi Rates
             </h2>
             <p className="text-stone-600 text-xs sm:text-sm mt-1.5">
-              Everything you need to know about wholesale mandi rates, minimum order quantities, and bulk delivery terms across Tamil Nadu.
+              Everything you need to know about wholesale mandi rates, minimum
+              order quantities, and bulk delivery terms across Tamil Nadu.
             </p>
           </div>
 
@@ -505,7 +567,9 @@ export default function MandiRatesView({
               Need Custom Wholesale Volume Pricing in Tamil Nadu?
             </h3>
             <p className="text-emerald-200/90 text-xs sm:text-sm mt-1 max-w-xl">
-              Connect with BK & Co wholesale produce desk for customized bulk contract pricing, hotel daily supplies, or retail distribution trucks across Tamil Nadu.
+              Connect with BK AND CO wholesale produce desk for customized bulk
+              contract pricing, hotel daily supplies, or retail distribution
+              trucks across Tamil Nadu.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
@@ -516,7 +580,7 @@ export default function MandiRatesView({
               Call: +91 84899 34449
             </a>
             <a
-              href="https://wa.me/918489934449?text=Hello%20BK%20%26%20Co%2C%20I%20would%20like%20to%20place%20a%20bulk%20wholesale%20produce%20order."
+              href="https://wa.me/918489934449?text=Hello%20BK%20AND%20CO%2C%20I%20would%20like%20to%20place%20a%20bulk%20wholesale%20produce%20order."
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs sm:text-sm font-semibold shadow-md transition-colors"

@@ -7,13 +7,17 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": ["WholesaleStore", "LocalBusiness"],
     "@id": `${SITE_URL}/#localbusiness`,
-    name: "BK & Co",
-    alternateName: ["BK AND CO", "BK & Co Salem", "BK Farms Wholesale Produce"],
+    name: "BK AND CO",
+    alternateName: [
+      "BK AND CO",
+      "BK AND CO Salem",
+      "BK Farms Wholesale Produce",
+    ],
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.ico`,
     image: `${SITE_URL}/og-image.png`,
     description:
-      "BK & Co is Salem's trusted wholesale supplier of farm-fresh Onion, Potato, Garlic, Eggs & Seasonal Fruits. Bulk orders, competitive mandi prices, and on-time delivery across Tamil Nadu.",
+      "BK AND CO is Salem's trusted wholesale supplier of farm-fresh Onion, Potato, Garlic, Eggs & Seasonal Fruits. Bulk orders, competitive mandi prices, and on-time delivery across Tamil Nadu.",
     telephone: "+91 84899 34449",
     email: "bkfarmssalem@gmail.com",
     priceRange: "₹₹",
@@ -23,8 +27,7 @@ export default function JsonLd() {
       "https://maps.google.com/?q=No.28,+Chairman+Rajarathnam+Street,+Opp.+Kamala+Hospital,+Salem+-+636001",
     address: {
       "@type": "PostalAddress",
-      streetAddress:
-        "No.28, Chairman Rajarathnam Street, Opp. Kamala Hospital",
+      streetAddress: "No.28, Chairman Rajarathnam Street, Opp. Kamala Hospital",
       addressLocality: "Salem",
       addressRegion: "Tamil Nadu",
       postalCode: "636001",
@@ -173,9 +176,9 @@ export default function JsonLd() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: "BK & Co",
+    name: "BK AND CO",
     description:
-      "BK & Co — Fresh Wholesale Produce Supplier in Salem, Tamil Nadu",
+      "BK AND CO — Fresh Wholesale Produce Supplier in Salem, Tamil Nadu",
     publisher: {
       "@id": `${SITE_URL}/#organization`,
     },
@@ -186,7 +189,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
-    name: "BK & Co",
+    name: "BK AND CO",
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.ico`,
     sameAs: [

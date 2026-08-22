@@ -20,7 +20,7 @@ export default function FloatingActionButtons() {
           type="button"
           onClick={() => setIsReviewModalOpen(true)}
           aria-label="Open Google Reviews Modal"
-          title="Google Reviews — BK & Co"
+          title="Google Reviews — BK AND CO"
           className="group relative flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-white/95 backdrop-blur-md border border-gray-200/90 shadow-[0_8px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_28px_rgba(66,133,244,0.25)] hover:border-blue-400/60 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
         >
           {/* Google Logo */}
@@ -45,11 +45,10 @@ export default function FloatingActionButtons() {
       >
         <a
           href="tel:+918489934449"
-          aria-label="Call BK & Co Wholesale: +91 84899 34449"
+          aria-label="Call BK AND CO Wholesale: +91 84899 34449"
           title="Call Us: +91 84899 34449"
           className="group relative flex items-center justify-center w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-gradient-to-r from-[#14532d] via-[#15803d] to-[#16a34a] text-white shadow-[0_8px_24px_rgba(20,83,45,0.35)] hover:shadow-[0_12px_28px_rgba(20,83,45,0.5)] border border-emerald-400/30 hover:border-emerald-300/60 hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
         >
-         
           {/* Call Icon */}
           <div className="relative flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 text-white flex-shrink-0">
             <svg
@@ -73,9 +72,9 @@ export default function FloatingActionButtons() {
         isOpen={isReviewModalOpen}
         onClose={() => setIsReviewModalOpen(false)}
         showTrigger={false}
-        businessName="BK Vegetables"
+        businessName="BK AND CO"
         reviewUrl="https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I"
-        logoText="BK & Co"
+        logoText="BK AND CO"
         logoSubtext="Vegetables"
       />
     </>

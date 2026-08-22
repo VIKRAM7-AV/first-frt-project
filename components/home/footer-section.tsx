@@ -109,7 +109,7 @@ export default function FooterSection() {
             <div className="flex items-center gap-3">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote."
+                href="https://wa.me/918489934449?text=Hello%20BK%20AND%20CO%2C%20I%20would%20like%20to%20get%20a%20bulk%20supply%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

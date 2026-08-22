@@ -27,22 +27,24 @@ export interface PlaceReviewsData {
   isFallback: boolean;
 }
 
-// Initial verified reviews for BK Fruits & Vegetables Wholesale
+// Initial verified reviews for BK AND CO Wholesale
 const INITIAL_REVIEWS: ReviewItem[] = [
   {
     id: "review-1",
     name: "Jeevanandam",
     rating: 5,
-    text: "We have been sourcing onions, potatoes, and garlic in bulk for our restaurant kitchen from BK & Co for over a year. Outstanding freshness, uniform grading, and prompt morning delivery every time. Their wholesale rates in Salem are truly unbeatable!",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjUbYc1UEPQTuGMVkXO_1BDq7H4AsI2XBKqurchun0U_mNABtX9x=s128-c0x00000000-cc-rp-mo",
+    text: "We have been sourcing onions, potatoes, and garlic in bulk for our restaurant kitchen from BK AND CO for over a year. Outstanding freshness, uniform grading, and prompt morning delivery every time. Their wholesale rates in Salem are truly unbeatable!",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjUbYc1UEPQTuGMVkXO_1BDq7H4AsI2XBKqurchun0U_mNABtX9x=s128-c0x00000000-cc-rp-mo",
     relativeTime: "1 week ago",
   },
   {
     id: "review-2",
     name: "Karthik (Catering)",
     rating: 5,
-    text: "Ordered 500kg of farm-fresh red onions, table eggs, and seasonal fruits for a 3-day wedding catering event. Every single sack was top grade with zero spoilage. The BK team packed everything in clean crates and delivered right on schedule!",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVsA3Z6AcepHnyjSU4r9KGTQB4tALb9Kv1vCpZPxtZufqaQLZ2e=s128-c0x00000000-cc-rp-mo",
+    text: "Ordered 500kg of farm-fresh red onions, table eggs, and seasonal fruits for a 3-day wedding catering event. Every single sack was top grade with zero spoilage. The BK AND CO team packed everything in clean crates and delivered right on schedule!",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVsA3Z6AcepHnyjSU4r9KGTQB4tALb9Kv1vCpZPxtZufqaQLZ2e=s128-c0x00000000-cc-rp-mo",
     relativeTime: "2 weeks ago",
   },
   {
@@ -50,15 +52,17 @@ const INITIAL_REVIEWS: ReviewItem[] = [
     name: "Mohammed Ismail",
     rating: 5,
     text: "Best wholesale vegetable supplier in Salem! We purchase 25kg & 50kg bags of Grade-A red onions and bold garlic bulbs regularly for our retail store. Accurate weighing, direct farm prices, and excellent shelf life.",
-    avatar: "https://lh3.googleusercontent.com/a-/ALV-UjVyREnI7pQHnkU9bM37S-SJL2OKXzKiyeaXSdujrxovV3wxJSI=s128-c0x00000000-cc-rp-mo",
+    avatar:
+      "https://lh3.googleusercontent.com/a-/ALV-UjVyREnI7pQHnkU9bM37S-SJL2OKXzKiyeaXSdujrxovV3wxJSI=s128-c0x00000000-cc-rp-mo",
     relativeTime: "3 weeks ago",
   },
   {
     id: "review-4",
     name: "Suresh (Annapoorna Mess)",
     rating: 5,
-    text: "Reliable daily supply of premium potatoes and table eggs for our mess catering. Clean sorting, consistent size, and no wastage during cooking. Thank you to the BK team for their honest business ethics and timely vehicle dispatch.",
-    avatar: "https://lh3.googleusercontent.com/a/ACg8ocJWulji1-6JPlmDEX-iV0WtIZktjgYOaZib01VNNehspUOpZQ=s128-c0x00000000-cc-rp-mo",
+    text: "Reliable daily supply of premium potatoes and table eggs for our mess catering. Clean sorting, consistent size, and no wastage during cooking. Thank you to the BK AND CO team for their honest business ethics and timely vehicle dispatch.",
+    avatar:
+      "https://lh3.googleusercontent.com/a/ACg8ocJWulji1-6JPlmDEX-iV0WtIZktjgYOaZib01VNNehspUOpZQ=s128-c0x00000000-cc-rp-mo",
     relativeTime: "1 month ago",
   },
   {
@@ -66,14 +70,15 @@ const INITIAL_REVIEWS: ReviewItem[] = [
     name: "SV Traders",
     rating: 5,
     text: "Superb quality bold garlic and premium table eggs in master cartons. Transparent wholesale pricing with quick loading at their Salem depot. Extremely polite and cooperative team. Best wholesale partner for bulk buyers!",
-    avatar: "https://lh3.googleusercontent.com/a/ACg8ocI61dzLG3Zf-hvFvrI0KS2UlTY57XOEYx2atDvSLvWP2rNGNQ=s128-c0x00000000-cc-rp-mo",
+    avatar:
+      "https://lh3.googleusercontent.com/a/ACg8ocI61dzLG3Zf-hvFvrI0KS2UlTY57XOEYx2atDvSLvWP2rNGNQ=s128-c0x00000000-cc-rp-mo",
     relativeTime: "1 month ago",
   },
   {
     id: "review-6",
     name: "Poornima R.",
     rating: 5,
-    text: "Consistently exceptional quality fresh produce and prompt delivery. Always on time, very transparent and cooperative team. Highly recommend BK & CO in Salem for anyone looking for bulk vegetables and fruits!",
+    text: "Consistently exceptional quality fresh produce and prompt delivery. Always on time, very transparent and cooperative team. Highly recommend BK AND CO in Salem for anyone looking for bulk vegetables and fruits!",
     avatar: null,
     relativeTime: "2 months ago",
   },
@@ -89,7 +94,7 @@ const INITIAL_REVIEWS: ReviewItem[] = [
     id: "review-8",
     name: "Ramesh Chandran",
     rating: 5,
-    text: "Quality of onions and garlic supplied is consistently top-grade with great aroma and long shelf life. Seamless bulk vehicle loading and fair market wholesale prices. BK & Co is our trusted supplier in Salem.",
+    text: "Quality of onions and garlic supplied is consistently top-grade with great aroma and long shelf life. Seamless bulk vehicle loading and fair market wholesale prices. BK AND CO is our trusted supplier in Salem.",
     avatar: null,
     relativeTime: "3 months ago",
   },
@@ -170,7 +175,9 @@ function getAvatarColor(name: string) {
 /* Single Review Card */
 function ReviewCard({ review }: { review: ReviewItem }) {
   const [imageError, setImageError] = useState(false);
-  const initial = review.name ? review.name.trim().charAt(0).toUpperCase() : "G";
+  const initial = review.name
+    ? review.name.trim().charAt(0).toUpperCase()
+    : "G";
   const avatarBg = getAvatarColor(review.name || "Google");
 
   return (
@@ -294,7 +301,7 @@ export default function CustomerReviewSection() {
             opacity: 1,
             duration: 0.5,
             ease: "back.out(1.7)",
-          }
+          },
         )
         .fromTo(
           ".review-title-anim",
@@ -306,7 +313,7 @@ export default function CustomerReviewSection() {
             duration: 0.7,
             ease: "power3.out",
           },
-          "-=0.2"
+          "-=0.2",
         )
         .fromTo(
           ".review-underline-anim",
@@ -316,7 +323,7 @@ export default function CustomerReviewSection() {
             duration: 0.5,
             ease: "power2.out",
           },
-          "-=0.3"
+          "-=0.3",
         );
 
       /* Rows fade in */
@@ -333,7 +340,7 @@ export default function CustomerReviewSection() {
             start: "top 92%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -350,7 +357,7 @@ export default function CustomerReviewSection() {
             start: "top 92%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -431,7 +438,8 @@ export default function CustomerReviewSection() {
             </div>
             <span className="text-gray-300 text-xs">•</span>
             <span className="text-xs text-gray-600 font-medium group-hover:text-blue-600 transition-colors">
-              {data.totalReviews} {data.totalReviews === 1 ? "Verified Review" : "Verified Reviews"}
+              {data.totalReviews}{" "}
+              {data.totalReviews === 1 ? "Verified Review" : "Verified Reviews"}
             </span>
           </button>
 
@@ -443,7 +451,9 @@ export default function CustomerReviewSection() {
           {/* Underline accent */}
           <div
             className="review-underline-anim mt-3 h-[3.5px] w-24 sm:w-28 rounded-full origin-center"
-            style={{ background: "linear-gradient(90deg, #148200d0, #00a70eff)" }}
+            style={{
+              background: "linear-gradient(90deg, #148200d0, #00a70eff)",
+            }}
           />
 
           {/* Interactive Share Experience Button */}
@@ -452,9 +462,13 @@ export default function CustomerReviewSection() {
             onClick={() => setIsReviewModalOpen(true)}
             className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-emerald-600/30 text-emerald-800 hover:bg-emerald-50 hover:border-emerald-600/60 text-xs sm:text-sm font-semibold shadow-xs hover:shadow-sm transition-all duration-200 cursor-pointer group"
           >
-            <span className="text-[#F4B400] text-sm group-hover:scale-110 transition-transform">★</span>
+            <span className="text-[#F4B400] text-sm group-hover:scale-110 transition-transform">
+              ★
+            </span>
             <span>Share Your Experience</span>
-            <span className="text-xs text-emerald-600 font-bold group-hover:translate-x-0.5 transition-transform">→</span>
+            <span className="text-xs text-emerald-600 font-bold group-hover:translate-x-0.5 transition-transform">
+              →
+            </span>
           </button>
         </div>
 
@@ -494,9 +508,12 @@ export default function CustomerReviewSection() {
         isOpen={isReviewModalOpen}
         onClose={() => setIsReviewModalOpen(false)}
         showTrigger={false}
-        businessName="BK Vegetables"
-        reviewUrl={data.googleMapsUrl || "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I"}
-        logoText="BK & Co"
+        businessName="BK AND CO"
+        reviewUrl={
+          data.googleMapsUrl ||
+          "https://search.google.com/local/writereview?placeid=ChIJN_plTgDxqzsROtt3XOLD65I"
+        }
+        logoText="BK AND CO"
         logoSubtext="Vegetables"
       />
     </section>

@@ -7,9 +7,10 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bkfarms.in";
 export const revalidate = 21600; // Cache / ISR revalidate every 6 hours
 
 export const metadata: Metadata = {
-  title: "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices",
+  title:
+    "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices",
   description:
-    "Check today's live Tamil Nadu State Mandi wholesale market prices for Big Onion, Small Onion (Shallots), Potato, Garlic, Table Eggs & Seasonal Fruits. Official Government of India Mandi feed updated daily by BK & Co.",
+    "Check today's live Tamil Nadu State Mandi wholesale market prices for Big Onion, Small Onion (Shallots), Potato, Garlic, Table Eggs & Seasonal Fruits. Official Government of India Mandi feed updated daily by BK AND CO.",
   keywords: [
     "Tamil Nadu mandi rates today",
     "தமிழ்நாடு தினசரி காய்கறி விலை",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     "potato wholesale price Tamil Nadu",
     "egg tray wholesale price Tamil Nadu",
     "Tamil Nadu daily vegetable market rate",
-    "BK and Co wholesale produce",
+    "BK AND CO wholesale produce",
     "Tamil Nadu agricultural mandi rate card",
     "bulk fruit supplier Tamil Nadu mandi",
   ],
@@ -31,8 +32,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${SITE_URL}/mandi-rates`,
-    siteName: "BK & Co",
-    title: "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK & Co",
+    siteName: "BK AND CO",
+    title:
+      "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK AND CO",
     description:
       "Check today's live Tamil Nadu State Mandi wholesale market prices for Onion, Shallots, Potato, Garlic, Eggs & Seasonal Fruits. Official daily market feed.",
     locale: "en_IN",
@@ -41,13 +43,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Tamil Nadu Mandi Rates Today — BK & Co Wholesale Produce",
+        alt: "Tamil Nadu Mandi Rates Today — BK AND CO Wholesale Produce",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK & Co",
+    title:
+      "Tamil Nadu Mandi Rates Today — Daily Wholesale Vegetable & Fruit Prices | BK AND CO",
     description:
       "Check today's live Tamil Nadu State Mandi wholesale prices for Onion, Shallots, Potato, Garlic, Eggs & Seasonal Fruits.",
     images: ["/og-image.png"],
@@ -58,7 +61,8 @@ export default async function MandiRatesPage() {
   // Fetch live Tamil Nadu Mandi dataset dynamically from Government of India feeds
   const data = await getTamilNaduMandiRates();
   const products = data.products || [];
-  const arrivalDate = data.arrivalDate || new Date().toLocaleDateString("en-GB");
+  const arrivalDate =
+    data.arrivalDate || new Date().toLocaleDateString("en-GB");
   const isoDate = new Date().toISOString().split("T")[0];
 
   // Breadcrumb Schema
@@ -106,7 +110,7 @@ export default async function MandiRatesPage() {
     },
     creator: {
       "@type": "Organization",
-      name: "BK & Co",
+      name: "BK AND CO",
       url: SITE_URL,
     },
   };
@@ -134,10 +138,10 @@ export default async function MandiRatesPage() {
       },
       {
         "@type": "Question",
-        name: "Can businesses place bulk wholesale orders directly through BK & Co across Tamil Nadu?",
+        name: "Can businesses place bulk wholesale orders directly through BK AND CO across Tamil Nadu?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. BK & Co specializes in bulk wholesale supply for supermarkets, hotels, restaurants, catering companies, hostel messes, and retail vendors with daily and scheduled consignments across Tamil Nadu.",
+          text: "Yes. BK AND CO specializes in bulk wholesale supply for supermarkets, hotels, restaurants, catering companies, hostel messes, and retail vendors with daily and scheduled consignments across Tamil Nadu.",
         },
       },
       {
@@ -164,7 +168,7 @@ export default async function MandiRatesPage() {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Tamil Nadu State Wholesale Mandi Produce Prices Today",
-    description: `Daily wholesale agricultural mandi rates in Tamil Nadu as of ${arrivalDate} from BK & Co.`,
+    description: `Daily wholesale agricultural mandi rates in Tamil Nadu as of ${arrivalDate} from BK AND CO.`,
     numberOfItems: products.length,
     itemListElement: products.map((prod, index) => ({
       "@type": "ListItem",
@@ -182,16 +186,19 @@ export default async function MandiRatesPage() {
           lowPrice: prod.minPriceKg,
           highPrice: prod.maxPriceKg,
           price: prod.modalPriceKg,
-          priceValidUntil: new Date(Date.now() + 86400000).toISOString().split("T")[0],
+          priceValidUntil: new Date(Date.now() + 86400000)
+            .toISOString()
+            .split("T")[0],
           itemCondition: "https://schema.org/NewCondition",
           availability: "https://schema.org/InStock",
           seller: {
             "@type": "WholesaleStore",
-            name: "BK & Co",
+            name: "BK AND CO",
             telephone: "+91 84899 34449",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "No.28, Chairman Rajarathnam Street, Opp. Kamala Hospital",
+              streetAddress:
+                "No.28, Chairman Rajarathnam Street, Opp. Kamala Hospital",
               addressLocality: "Salem",
               addressRegion: "Tamil Nadu",
               postalCode: "636001",

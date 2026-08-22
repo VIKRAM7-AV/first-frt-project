@@ -172,7 +172,7 @@ export default function HeroSection() {
             <div className="mt-7 sm:mt-8 flex items-center justify-start sm:justify-center lg:justify-start gap-2.5 sm:gap-4 flex-nowrap">
               {/* WhatsApp / Get a Quote Button */}
               <Link
-                href="https://wa.me/918489934449?text=Hello%20BK%20%26%20CO%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20bulk%20produce"
+                href="https://wa.me/918489934449?text=Hello%20BK%20AND%20CO%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20bulk%20produce"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hero-anim-btn inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-lg bg-[#14532d] px-4 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-[#0f4022] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 will-change-transform whitespace-nowrap flex-shrink-0"

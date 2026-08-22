@@ -259,7 +259,7 @@ function StorefrontVegetableIllustration({
       <div className="relative w-20 h-20 xs:w-24 xs:h-24 sm:w-28 sm:h-28 md:w-34 md:h-34 flex items-center justify-center">
         <Image
           src="/images/shop.png"
-          alt="BK Vegetables Storefront"
+          alt="BK AND CO Storefront"
           width={150}
           height={150}
           className="w-full h-full object-contain drop-shadow-sm transition-transform duration-300 hover:scale-105"
@@ -321,7 +321,7 @@ export function getDirectReviewUrl(url?: string): string {
 }
 
 export function GoogleReviewCard({
-  businessName = "BK Fruits & Vegetables",
+  businessName = "BK AND CO",
   reviewUrl = DEFAULT_WRITE_REVIEW_URL,
   customLogo,
   onReviewClick,
@@ -507,7 +507,7 @@ function useIsClient() {
 export default function GoogleReviewModal({
   isOpen: controlledIsOpen,
   onClose: controlledOnClose,
-  businessName = "BK Fruits & Vegetables",
+  businessName = "BK AND CO",
   reviewUrl = DEFAULT_WRITE_REVIEW_URL,
   customLogo,
   triggerText = "Leave a Google Review",
