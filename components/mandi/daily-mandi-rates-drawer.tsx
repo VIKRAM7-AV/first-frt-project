@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { TargetProduct } from "@/app/api/mandi-rates/route";
@@ -205,25 +211,29 @@ export default function DailyMandiRatesDrawer({
   }, [isOpen]);
 
   // Tab Pill Smooth Sliding Animation
-  const updateTabPill = useCallback((animate = true) => {
-    const activeBtn = unitMode === "kg" ? kgBtnRef.current : qtlBtnRef.current;
-    const pill = tabPillRef.current;
-    if (!activeBtn || !pill) return;
+  const updateTabPill = useCallback(
+    (animate = true) => {
+      const activeBtn =
+        unitMode === "kg" ? kgBtnRef.current : qtlBtnRef.current;
+      const pill = tabPillRef.current;
+      if (!activeBtn || !pill) return;
 
-    if (animate) {
-      gsap.to(pill, {
-        left: activeBtn.offsetLeft,
-        width: activeBtn.offsetWidth,
-        duration: 0.32,
-        ease: "power2.out",
-      });
-    } else {
-      gsap.set(pill, {
-        left: activeBtn.offsetLeft,
-        width: activeBtn.offsetWidth,
-      });
-    }
-  }, [unitMode]);
+      if (animate) {
+        gsap.to(pill, {
+          left: activeBtn.offsetLeft,
+          width: activeBtn.offsetWidth,
+          duration: 0.32,
+          ease: "power2.out",
+        });
+      } else {
+        gsap.set(pill, {
+          left: activeBtn.offsetLeft,
+          width: activeBtn.offsetWidth,
+        });
+      }
+    },
+    [unitMode],
+  );
 
   // Animate tab indicator and price numbers on unitMode change
   useEffect(() => {
@@ -398,7 +408,8 @@ export default function DailyMandiRatesDrawer({
                     : "text-emerald-200/80 hover:text-white"
                 }`}
               >
-                <IndianRupeeIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> / Quintal / Tray
+                <IndianRupeeIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> /
+                Quintal / Tray
               </button>
             </div>
           </div>
@@ -439,7 +450,9 @@ export default function DailyMandiRatesDrawer({
               <h3 className="font-bold text-red-900 text-xs sm:text-sm">
                 Failed to Load Rates
               </h3>
-              <p className="text-[11px] sm:text-xs text-red-700 mt-1 max-w-xs">{error}</p>
+              <p className="text-[11px] sm:text-xs text-red-700 mt-1 max-w-xs">
+                {error}
+              </p>
               <button
                 type="button"
                 onClick={() => fetchRates(true)}
@@ -490,7 +503,9 @@ export default function DailyMandiRatesDrawer({
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <span className="text-lg sm:text-xl">{product.icon || " "}</span>
+                        <span className="text-lg sm:text-xl">
+                          {product.icon || " "}
+                        </span>
                       )}
                     </div>
 
@@ -529,7 +544,8 @@ export default function DailyMandiRatesDrawer({
                     <div className="mt-0.5 flex items-center gap-1">
                       <span className="text-[9px] sm:text-[10px] text-[#54656F] bg-[#F0F2F5] px-1.5 py-0.5 rounded-full whitespace-nowrap font-medium flex items-center gap-0.5">
                         <IndianRupeeIcon className="w-2 h-2 stroke-[2.4]" />
-                        {minPrice} - <IndianRupeeIcon className="w-2 h-2 stroke-[2.4]" />
+                        {minPrice} -{" "}
+                        <IndianRupeeIcon className="w-2 h-2 stroke-[2.4]" />
                         {maxPrice}
                       </span>
                     </div>

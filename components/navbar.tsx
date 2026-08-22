@@ -81,8 +81,8 @@ export default function Navbar({ onOpenMandiRates }: NavbarProps) {
 
           {/* Right Action Elements (Daily Rates Modal Button + Call Us) */}
           <div className="flex items-center gap-2.5 sm:gap-7 lg:gap-10 flex-shrink-0">
-            {/* Daily Tamil Nadu Rates Modal Trigger Button */}
-            {onOpenMandiRates && (
+            {/* Daily Tamil Nadu Rates Modal Trigger Button / Link */}
+            {onOpenMandiRates ? (
               <button
                 type="button"
                 onClick={onOpenMandiRates}
@@ -96,6 +96,19 @@ export default function Navbar({ onOpenMandiRates }: NavbarProps) {
                   Today Market Rate
                 </span>
               </button>
+            ) : (
+              <Link
+                href="/mandi-rates"
+                className="group relative inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-600/30 text-[#14532d] shadow-xs hover:shadow-sm transition-all duration-200 cursor-pointer text-xs sm:text-sm font-semibold"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                </span>
+                <span className="tracking-tight">
+                  Today Market Rate
+                </span>
+              </Link>
             )}
 
             {/* Call Us Contact */}

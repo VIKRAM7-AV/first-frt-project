@@ -47,20 +47,26 @@ const SITE_TITLE = "BK & Co — Fresh Wholesale Produce, Salem";
 const SITE_DESCRIPTION =
   "BK & Co is Salem's trusted wholesale supplier of farm-fresh Onion, Potato, Garlic, Eggs & Seasonal Fruits. Bulk orders, competitive prices, on-time delivery across Tamil Nadu.";
 const SITE_KEYWORDS = [
+  "Tamil Nadu mandi rates today",
+  "தமிழ்நாடு தினசரி காய்கறி விலை",
+  "Tamil Nadu vegetable wholesale price list",
+  "Tamil Nadu state daily mandi rates",
+  "Salem mandi rates today",
   "wholesale vegetables Salem",
-  "bulk onion supplier Salem",
-  "potato wholesale Salem mandi",
+  "bulk onion supplier Tamil Nadu",
+  "potato wholesale Tamil Nadu mandi",
   "garlic wholesale Tamil Nadu",
-  "egg supplier Salem wholesale",
-  "fresh fruits wholesale Salem",
+  "egg supplier Tamil Nadu wholesale",
+  "fresh fruits wholesale Tamil Nadu",
   "farm produce bulk Salem",
   "BK and Co Salem",
   "BK Farms Salem",
-  "wholesale grocery supplier Salem",
+  "wholesale grocery supplier Tamil Nadu",
   "vegetable distributor Salem Tamil Nadu",
-  "hotel vegetable supplier Salem",
-  "catering bulk grocery Salem",
-  "wholesale mandi supplier Salem",
+  "hotel vegetable supplier Tamil Nadu",
+  "catering bulk grocery Tamil Nadu",
+  "wholesale mandi supplier Tamil Nadu",
+  "daily mandi rates Tamil Nadu",
 ];
 
 // ---------------------------------------------------------------------------
